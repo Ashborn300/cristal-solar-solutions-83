@@ -9,32 +9,47 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 26% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 26% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 26% 14%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 220 26% 14%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 220 26% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 39 100% 55%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --success: 120 60% 45%;
+    --success-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 210 100% 50%;
+
+    --solar-orange: 39 100% 55%;
+    --solar-blue: 210 100% 50%;
+    --solar-green: 120 60% 45%;
+    --solar-light: 210 100% 97%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(var(--solar-blue)), hsl(var(--solar-orange)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--solar-orange)), hsl(var(--solar-green)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--solar-blue)) 0%, hsl(var(--solar-orange)) 100%);
+    
+    --shadow-solar: 0 20px 40px -12px hsl(var(--solar-blue) / 0.25);
+    --shadow-warm: 0 8px 32px -8px hsl(var(--solar-orange) / 0.3);
 
     --radius: 0.5rem;
 
@@ -56,33 +71,48 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 220 26% 8%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 220 26% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 220 26% 8%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 210 100% 60%;
+    --primary-foreground: 220 26% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 220 26% 14%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 26% 14%;
+    --muted-foreground: 210 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 39 100% 60%;
+    --accent-foreground: 220 26% 8%;
 
-    --destructive: 0 62.8% 30.6%;
+    --success: 120 60% 50%;
+    --success-foreground: 220 26% 8%;
+
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 220 26% 18%;
+    --input: 220 26% 18%;
+    --ring: 210 100% 60%;
+
+    --solar-orange: 39 100% 60%;
+    --solar-blue: 210 100% 60%;
+    --solar-green: 120 60% 50%;
+    --solar-light: 220 26% 12%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--solar-blue)), hsl(var(--solar-orange)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--solar-orange)), hsl(var(--solar-green)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--solar-blue)) 0%, hsl(var(--solar-orange)) 100%);
+    
+    --shadow-solar: 0 20px 40px -12px hsl(var(--solar-blue) / 0.4);
+    --shadow-warm: 0 8px 32px -8px hsl(var(--solar-orange) / 0.4);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +131,77 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .shadow-solar {
+    box-shadow: var(--shadow-solar);
+  }
+  
+  .shadow-warm {
+    box-shadow: var(--shadow-warm);
+  }
+
+  .animate-counter {
+    @apply animate-[countUp_2s_ease-out_forwards];
+  }
+
+  .animate-fade-in-up {
+    @apply animate-[fadeInUp_0.6s_ease-out_forwards];
+  }
+
+  .animate-slide-in-left {
+    @apply animate-[slideInLeft_0.8s_ease-out_forwards];
+  }
+
+  .animate-scale-in {
+    @apply animate-[scaleIn_0.5s_ease-out_forwards];
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-warm;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .whatsapp-float {
+    @apply fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110;
+  }
+}
+
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgb(0 0 0 / 0.1);
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+  }
+
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 0.6s;
   }
 }

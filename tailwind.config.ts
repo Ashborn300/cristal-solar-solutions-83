@@ -57,6 +57,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        solar: {
+          orange: "hsl(var(--solar-orange))",
+          blue: "hsl(var(--solar-blue))",
+          green: "hsl(var(--solar-green))",
+          light: "hsl(var(--solar-light))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,10 +90,63 @@ export default {
             height: "0",
           },
         },
+        "fadeInUp": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(30px)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)"
+          }
+        },
+        "slideInLeft": {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(-30px)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)"
+          }
+        },
+        "scaleIn": {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0.8)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)"
+          }
+        },
+        "countUp": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(20px) scale(0.8)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0) scale(1)"
+          }
+        },
+        "pulse-glow": {
+          "0%, 100%": {
+            boxShadow: "0 0 20px hsl(var(--solar-orange) / 0.5)"
+          },
+          "50%": {
+            boxShadow: "0 0 40px hsl(var(--solar-orange) / 0.8)"
+          }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fadeInUp": "fadeInUp 0.6s ease-out forwards",
+        "slideInLeft": "slideInLeft 0.8s ease-out forwards",
+        "scaleIn": "scaleIn 0.5s ease-out forwards",
+        "countUp": "countUp 2s ease-out forwards",
+        "pulse-glow": "pulse-glow 2s infinite"
       },
     },
   },
