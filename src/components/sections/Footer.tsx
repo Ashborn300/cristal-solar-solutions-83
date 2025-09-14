@@ -1,6 +1,9 @@
 import { Sun, Phone, Mail, MapPin, Facebook, Zap, Users, Award } from "lucide-react";
+import AnimatedNumber from "@/components/common/AnimatedNumber";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Footer = () => {
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.5 });
   const currentYear = new Date().getFullYear();
 
   const services = [
@@ -28,7 +31,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-card border-t border-border">
+    <footer ref={elementRef} className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-16">
@@ -55,15 +58,21 @@ const Footer = () => {
               {/* Key Stats */}
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="text-center">
-                  <div className="text-lg font-bold text-primary">14+</div>
+                  <div className="text-lg font-bold text-primary">
+                    <AnimatedNumber value={14} suffix="+" />
+                  </div>
                   <div className="text-xs text-muted-foreground">Années</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lg font-bold text-accent">500+</div>
+                  <div className="text-lg font-bold text-accent">
+                    <AnimatedNumber value={500} suffix="+" delay={100} />
+                  </div>
                   <div className="text-xs text-muted-foreground">Projets</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lg font-bold text-success">98%</div>
+                  <div className="text-lg font-bold text-success">
+                    <AnimatedNumber value={98} suffix="%" delay={200} />
+                  </div>
                   <div className="text-xs text-muted-foreground">Satisfaction</div>
                 </div>
               </div>

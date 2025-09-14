@@ -1,8 +1,13 @@
 import { Target, Eye, Award, Users, Zap, Globe } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import AnimatedNumber from "@/components/common/AnimatedNumber";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import solarWorkerImage from "@/assets/solar-worker-happy.jpg";
 
 const About = () => {
+  const { isVisible: statsVisible, elementRef: statsRef } = useScrollAnimation({ threshold: 0.4 });
+  const { isVisible: contentVisible, elementRef: contentRef } = useScrollAnimation({ threshold: 0.2 });
+
   const stats = [
     { number: "14+", label: "Années d'expérience", icon: Award },
     { number: "500+", label: "Projets réalisés", icon: Zap },
@@ -29,10 +34,10 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-background">
+    <section ref={contentRef} id="about" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fadeInUp">
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
             <span className="text-primary font-medium">À Propos</span>
           </div>
@@ -60,9 +65,11 @@ const About = () => {
             </div>
             
             {/* Stats Card Overlay */}
-            <Card className="absolute -bottom-8 -right-8 bg-white shadow-warm">
+            <Card className="absolute -bottom-8 -right-8 bg-white shadow-warm animate-scaleIn animation-delay-400">
               <CardContent className="p-6">
-                <div className="text-3xl font-bold gradient-text mb-1">14+</div>
+                <div className="text-3xl font-bold gradient-text mb-1">
+                  <AnimatedNumber value={14} suffix="+" />
+                </div>
                 <div className="text-sm text-muted-foreground">Années d'expertise</div>
                 <div className="text-xs text-muted-foreground mt-1">
                   Au service de l'énergie durable
@@ -116,13 +123,17 @@ const About = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16" ref={statsRef}>
           {stats.map((stat, index) => (
             <Card key={index} className="text-center hover-lift animate-scaleIn" style={{ animationDelay: `${index * 0.1}s` }}>
               <CardContent className="p-6">
                 <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
                 <div className="text-3xl font-bold gradient-text mb-2 animate-counter">
-                  {stat.number}
+                  <AnimatedNumber 
+                    value={parseInt(stat.number.replace(/[^0-9]/g, '')) || 0} 
+                    suffix={stat.number.replace(/[0-9]/g, '')} 
+                    delay={index * 150}
+                  />
                 </div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </CardContent>

@@ -1,7 +1,11 @@
 import { Star, Quote, Building, Home, Factory } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import AnimatedNumber from "@/components/common/AnimatedNumber";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Testimonials = () => {
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
+
   const testimonials = [
     {
       name: "Mukendi Kabamba",
@@ -109,7 +113,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="temoignages" className="py-20 bg-background">
+    <section ref={elementRef} id="temoignages" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -180,15 +184,21 @@ const Testimonials = () => {
             <CardContent className="p-8">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
                 <div>
-                  <div className="text-3xl font-bold gradient-text mb-2">98%</div>
+                  <div className="text-3xl font-bold gradient-text mb-2">
+                    <AnimatedNumber value={98} suffix="%" />
+                  </div>
                   <div className="text-sm text-muted-foreground">Taux de satisfaction</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold gradient-text mb-2">500+</div>
+                  <div className="text-3xl font-bold gradient-text mb-2">
+                    <AnimatedNumber value={500} suffix="+" delay={200} />
+                  </div>
                   <div className="text-sm text-muted-foreground">Clients satisfaits</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold gradient-text mb-2">4.9/5</div>
+                  <div className="text-3xl font-bold gradient-text mb-2">
+                    <AnimatedNumber value={4.9} suffix="/5" delay={400} />
+                  </div>
                   <div className="text-sm text-muted-foreground">Note moyenne</div>
                 </div>
               </div>

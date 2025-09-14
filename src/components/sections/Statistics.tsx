@@ -1,10 +1,10 @@
 import { TrendingUp, Zap, Users, Clock, Award, Globe } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useEffect, useState, useRef } from "react";
+import AnimatedNumber from "@/components/common/AnimatedNumber";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Statistics = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
 
   const stats = [
     {
@@ -57,66 +57,11 @@ const Statistics = () => {
     }
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const CountUpNumber = ({ number, suffix, isVisible, delay = 0 }: { 
-    number: number; 
-    suffix: string; 
-    isVisible: boolean; 
-    delay?: number;
-  }) => {
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-      if (!isVisible) return;
-
-      const timer = setTimeout(() => {
-        const increment = number / 50;
-        let current = 0;
-        
-        const interval = setInterval(() => {
-          current += increment;
-          if (current >= number) {
-            setCount(number);
-            clearInterval(interval);
-          } else {
-            setCount(Math.floor(current));
-          }
-        }, 30);
-
-        return () => clearInterval(interval);
-      }, delay);
-
-      return () => clearTimeout(timer);
-    }, [isVisible, number, delay]);
-
-    return (
-      <span className="text-4xl lg:text-5xl font-bold">
-        {count}{suffix}
-      </span>
-    );
-  };
-
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-solar-light to-background">
+    <section ref={elementRef} className="py-20 bg-gradient-to-br from-solar-light to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fadeInUp">
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
             <span className="text-primary font-medium">Nos Performances</span>
           </div>
@@ -142,11 +87,10 @@ const Statistics = () => {
                   <stat.icon className={`w-8 h-8 ${stat.color}`} />
                 </div>
                 
-                <div className={`${stat.color} mb-2 animate-counter`}>
-                  <CountUpNumber 
-                    number={stat.number} 
+                <div className={`${stat.color} mb-2 animate-counter text-4xl lg:text-5xl font-bold`}>
+                  <AnimatedNumber 
+                    value={stat.number} 
                     suffix={stat.suffix} 
-                    isVisible={isVisible}
                     delay={index * 200}
                   />
                 </div>
@@ -164,7 +108,7 @@ const Statistics = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-16 animate-fadeInUp animation-delay-600">
           <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20 max-w-4xl mx-auto">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-foreground mb-4">
@@ -172,7 +116,7 @@ const Statistics = () => {
               </h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                 Faites confiance à notre expertise reconnue pour vos projets d'énergie solaire. 
-                Plus de 14 ans d'expérience au service de la transition énergétique du Congo.
+                Plus de <AnimatedNumber value={14} suffix=" ans" className="font-semibold text-primary" /> d'expérience au service de la transition énergétique du Congo.
               </p>
               <div className="flex flex-wrap justify-center gap-2 text-sm">
                 <span className="px-3 py-1 bg-primary/10 text-primary rounded-full">Étude gratuite</span>

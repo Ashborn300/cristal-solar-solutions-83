@@ -1,12 +1,16 @@
 import { ExternalLink, MapPin, Zap, Calendar, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import AnimatedNumber from "@/components/common/AnimatedNumber";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import solarFieldImage from "@/assets/solar-panels-field.jpg";
 import solarTeamImage from "@/assets/solar-team-planning.jpg";
 import solarRuralImage from "@/assets/solar-rural-installation.jpg";
 import constructionTeamImage from "@/assets/construction-team.jpg";
 
 const Projects = () => {
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
+
   const projects = [
     {
       title: "Complexe Industriel MINABAT",
@@ -67,7 +71,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="realisations" className="py-20 bg-solar-light">
+    <section ref={elementRef} id="realisations" className="py-20 bg-solar-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -203,19 +207,27 @@ const Projects = () => {
             
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 mb-8">
               <div>
-                <div className="text-2xl font-bold gradient-text mb-1">500+</div>
+                <div className="text-2xl font-bold gradient-text mb-1">
+                  <AnimatedNumber value={500} suffix="+" />
+                </div>
                 <div className="text-sm text-muted-foreground">Projets réalisés</div>
               </div>
               <div>
-                <div className="text-2xl font-bold gradient-text mb-1">150MW</div>
+                <div className="text-2xl font-bold gradient-text mb-1">
+                  <AnimatedNumber value={150} suffix="MW" delay={200} />
+                </div>
                 <div className="text-sm text-muted-foreground">Puissance installée</div>
               </div>
               <div>
-                <div className="text-2xl font-bold gradient-text mb-1">50+</div>
+                <div className="text-2xl font-bold gradient-text mb-1">
+                  <AnimatedNumber value={50} suffix="+" delay={400} />
+                </div>
                 <div className="text-sm text-muted-foreground">Localités desservies</div>
               </div>
               <div>
-                <div className="text-2xl font-bold gradient-text mb-1">14+</div>
+                <div className="text-2xl font-bold gradient-text mb-1">
+                  <AnimatedNumber value={14} suffix="+" delay={600} />
+                </div>
                 <div className="text-sm text-muted-foreground">Années d'expérience</div>
               </div>
             </div>

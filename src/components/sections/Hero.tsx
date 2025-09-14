@@ -1,8 +1,12 @@
 import { ArrowRight, Zap, Users, Award, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AnimatedNumber from "@/components/common/AnimatedNumber";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import solarFieldImage from "@/assets/solar-panels-field.jpg";
 
 const Hero = () => {
+  const { isVisible: statsVisible, elementRef: statsRef } = useScrollAnimation({ threshold: 0.5 });
+
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/243819257778", "_blank");
   };
@@ -41,7 +45,7 @@ const Hero = () => {
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight animate-fadeInUp">
                 Solutions Solaires
-                <span className="block gradient-text">
+                <span className="block text-white text-shadow">
                   Durables & Fiables
                 </span>
               </h1>
@@ -53,17 +57,23 @@ const Hero = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 py-8 animate-fadeInUp animation-delay-400">
+            <div ref={statsRef} className="grid grid-cols-3 gap-6 py-8 animate-fadeInUp animation-delay-400">
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text animate-counter">14+</div>
+                <div className="text-3xl font-bold text-white animate-counter">
+                  <AnimatedNumber value={14} suffix="+" />
+                </div>
                 <div className="text-sm text-white/80">Années d'expérience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text animate-counter">500+</div>
+                <div className="text-3xl font-bold text-white animate-counter">
+                  <AnimatedNumber value={500} suffix="+" delay={200} />
+                </div>
                 <div className="text-sm text-white/80">Projets réalisés</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text animate-counter">98%</div>
+                <div className="text-3xl font-bold text-white animate-counter">
+                  <AnimatedNumber value={98} suffix="%" delay={400} />
+                </div>
                 <div className="text-sm text-white/80">Clients satisfaits</div>
               </div>
             </div>
