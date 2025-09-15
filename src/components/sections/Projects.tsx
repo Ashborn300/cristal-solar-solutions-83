@@ -11,6 +11,12 @@ import constructionTeamImage from "@/assets/construction-team.jpg";
 import projetMemling1 from "@/assets/projet-memling-1.jpg";
 import projetMemling2 from "@/assets/projet-memling-2.jpg";
 import projetMemling3 from "@/assets/projet-memling-3.jpg";
+// Import Rigini project images
+import projetRigini1 from "@/assets/projet-rigini-1.jpg";
+import projetRigini2 from "@/assets/projet-rigini-2.jpg";
+import projetRigini3 from "@/assets/projet-rigini-3.jpg";
+import projetRigini4 from "@/assets/projet-rigini-4.jpg";
+import projetRigini5 from "@/assets/projet-rigini-5.jpg";
 
 const Projects = () => {
   const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
@@ -90,6 +96,48 @@ const Projects = () => {
             Découvrez quelques-uns de nos projets phares qui illustrent notre expertise 
             dans différents secteurs d'activité.
           </p>
+        </div>
+
+        {/* Featured Project Gallery - Rigini Project */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-foreground mb-4">
+              Dernière Installation 2022
+              <span className="block gradient-text">Projet Rigini - Kinshasa</span>
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              The last installation of 2022 at Rigini (Kinshasa)
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {[
+              { image: projetRigini1, title: "Panneaux solaires sur toiture" },
+              { image: projetRigini2, title: "Installation complète" },
+              { image: projetRigini3, title: "Onduleurs et équipements" },
+              { image: projetRigini4, title: "Système de stockage" },
+              { image: projetRigini5, title: "Installation technique" }
+            ].map((item, index) => (
+              <div 
+                key={index} 
+                className="group relative overflow-hidden rounded-lg shadow-lg hover-lift animate-fadeInUp"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="font-medium">{item.title}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Featured Project Gallery - Memling Project */}
