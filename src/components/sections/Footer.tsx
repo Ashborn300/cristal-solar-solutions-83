@@ -1,4 +1,4 @@
-import { Sun, Phone, Mail, MapPin, Facebook, Zap, Users, Award } from "lucide-react";
+import { Sun, Phone, Mail, MapPin, Facebook, Zap, Users, Award, FileText } from "lucide-react";
 import AnimatedNumber from "@/components/common/AnimatedNumber";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -20,10 +20,15 @@ const Footer = () => {
     { name: "À propos", href: "#about" },
     { name: "Réalisations", href: "#realisations" },
     { name: "Témoignages", href: "#temoignages" },
+    { name: "CV Expert", href: "/cv" },
     { name: "Contact", href: "#contact" }
   ];
 
   const scrollToSection = (href: string) => {
+    if (href.startsWith("/")) {
+      window.location.href = href;
+      return;
+    }
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -124,7 +129,14 @@ const Footer = () => {
                 ))}
               </ul>
               
-              <div className="mt-6 pt-6 border-t border-border">
+              <div className="mt-6 pt-6 border-t border-border space-y-3">
+                <button
+                  onClick={() => window.location.href = '/cv'}
+                  className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium flex items-center justify-center"
+                >
+                  <FileText className="w-4 h-4 mr-2" />
+                  Voir notre CV
+                </button>
                 <button
                   onClick={() => window.open("https://wa.me/243819257778", "_blank")}
                   className="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors text-sm font-medium flex items-center justify-center"

@@ -1,6 +1,7 @@
 import { ArrowRight, Zap, Users, Award, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedNumber from "@/components/common/AnimatedNumber";
+import CVDownloadButton from "@/components/common/CVDownloadButton";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import solarFieldImage from "@/assets/solar-panels-field.jpg";
 
@@ -99,6 +100,16 @@ const Hero = () => {
                 <Phone className="w-5 h-5 mr-2" />
                 Contact WhatsApp
               </Button>
+            </div>
+
+            {/* CV Download Section */}
+            <div className="mt-6 animate-fadeInUp animation-delay-800">
+              <CVDownloadButton 
+                variant="outline" 
+                className="justify-center sm:justify-start"
+              >
+                Voir notre CV d'Expert
+              </CVDownloadButton>
             </div>
           </div>
 

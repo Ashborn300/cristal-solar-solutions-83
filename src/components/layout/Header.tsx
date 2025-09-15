@@ -20,10 +20,17 @@ const Header = () => {
     name: "Témoignages",
     href: "#temoignages"
   }, {
+    name: "CV",
+    href: "/cv"
+  }, {
     name: "Contact",
     href: "#contact"
   }];
   const scrollToSection = (href: string) => {
+    if (href.startsWith("/")) {
+      window.location.href = href;
+      return;
+    }
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({
