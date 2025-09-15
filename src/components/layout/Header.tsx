@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Menu, X, Sun, Zap, Phone } from "lucide-react";
+import { Menu, X, Zap, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoImage from "@/assets/logo-cristal.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,9 +32,13 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full gradient-primary">
-              <Sun className="w-6 h-6 text-white" />
+          <div className="flex items-center space-x-3">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full overflow-hidden bg-white">
+              <img 
+                src={logoImage} 
+                alt="Cristal Alternative Engineering Logo" 
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-bold text-primary">CRISTAL</span>
