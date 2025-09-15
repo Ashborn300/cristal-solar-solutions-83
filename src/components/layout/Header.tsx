@@ -2,13 +2,14 @@ import { useState } from "react";
 import { Menu, X, Zap, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import LanguageToggle from "@/components/common/LanguageToggle";
 import logoImage from "@/assets/logo-cristal.jpg";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const location = useLocation();
   
   const navigation = [{
     name: t('nav.home'),
@@ -34,20 +35,25 @@ const Header = () => {
   }];
   const scrollToSection = (href: string) => {
     setIsMenuOpen(false);
-    
+
     if (href.startsWith("/")) {
       navigate(href);
       return;
     }
-    
+
+    const isHome = location.pathname === "/";
+
+    if (!isHome) {
+      // Navigate to home with hash so the browser scrolls after route change
+      navigate({ pathname: "/", hash: href });
+      return;
+    }
+
     // Small delay to allow menu to close before scrolling
     setTimeout(() => {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }, 100);
   };
@@ -58,7 +64,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate("/")} role="button" aria-label="Aller à l'accueil">
             <div className="flex items-center justify-center w-12 h-12 rounded-full overflow-hidden bg-white">
               <img src={logoImage} alt="Cristal Alternative Engineering Logo" className="w-full h-full object-cover" />
             </div>
