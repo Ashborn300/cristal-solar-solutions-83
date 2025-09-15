@@ -5,9 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,15 +16,19 @@ const Contact = () => {
     project: "",
     message: ""
   });
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Créer le message WhatsApp
     const whatsappMessage = `
 🌞 DEMANDE DE DEVIS SOLAIRE - CRISTAL ALTERNATIVE ENGINEERING
@@ -39,13 +44,11 @@ ${formData.message}
 ---
 Envoyé depuis le site web cristal-engineering.com
     `.trim();
-
     const whatsappUrl = `https://wa.me/243819257778?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
-
     toast({
       title: "Message préparé !",
-      description: "Votre demande va s'ouvrir dans WhatsApp.",
+      description: "Votre demande va s'ouvrir dans WhatsApp."
     });
 
     // Reset form
@@ -57,42 +60,38 @@ Envoyé depuis le site web cristal-engineering.com
       message: ""
     });
   };
-
-  const contactInfo = [
-    {
-      icon: MapPin,
-      title: "Adresse",
-      content: "32, Avenue Kabale, Q/Tshimanga\nC/Barumbu, Kinshasa - RDC",
-      action: () => window.open("https://maps.google.com/?q=32+Avenue+Kabale+Kinshasa", "_blank")
-    },
-    {
-      icon: Phone,
-      title: "Téléphone",
-      content: "+243 81 925 77 78",
-      action: () => window.open("tel:+243819257778", "_blank")
-    },
-    {
-      icon: Mail,
-      title: "Email",
-      content: "ca.engineer.sales@gmail.com",
-      action: () => window.open("mailto:ca.engineer.sales@gmail.com", "_blank")
-    },
-    {
-      icon: Facebook,
-      title: "Facebook",
-      content: "www.facebook.com/cristalentrerprises",
-      action: () => window.open("https://www.facebook.com/cristalentrerprises", "_blank")
-    }
-  ];
-
-  const businessHours = [
-    { day: "Lundi - Vendredi", hours: "8h00 - 17h00" },
-    { day: "Samedi", hours: "8h00 - 13h00" },
-    { day: "Dimanche", hours: "Urgences uniquement" }
-  ];
-
-  return (
-    <section id="contact" className="py-20 bg-solar-light">
+  const contactInfo = [{
+    icon: MapPin,
+    title: "Adresse",
+    content: "32, Avenue Kabale, Q/Tshimanga\nC/Barumbu, Kinshasa - RDC",
+    action: () => window.open("https://maps.google.com/?q=32+Avenue+Kabale+Kinshasa", "_blank")
+  }, {
+    icon: Phone,
+    title: "Téléphone",
+    content: "+243 81 925 77 78",
+    action: () => window.open("tel:+243819257778", "_blank")
+  }, {
+    icon: Mail,
+    title: "Email",
+    content: "ca.engineer.sales@gmail.com",
+    action: () => window.open("mailto:ca.engineer.sales@gmail.com", "_blank")
+  }, {
+    icon: Facebook,
+    title: "Facebook",
+    content: "www.facebook.com/cristalentrerprises",
+    action: () => window.open("https://www.facebook.com/cristalentrerprises", "_blank")
+  }];
+  const businessHours = [{
+    day: "Lundi - Vendredi",
+    hours: "8h00 - 17h00"
+  }, {
+    day: "Samedi",
+    hours: "8h00 - 13h00"
+  }, {
+    day: "Dimanche",
+    hours: "Urgences uniquement"
+  }];
+  return <section id="contact" className="py-20 bg-solar-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -125,28 +124,13 @@ Envoyé depuis le site web cristal-engineering.com
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Nom complet *
                       </label>
-                      <Input
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Votre nom complet"
-                        required
-                        className="border-border focus:border-primary"
-                      />
+                      <Input name="name" value={formData.name} onChange={handleInputChange} placeholder="Votre nom complet" required className="border-border focus:border-primary" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Email *
                       </label>
-                      <Input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="votre@email.com"
-                        required
-                        className="border-border focus:border-primary"
-                      />
+                      <Input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="votre@email.com" required className="border-border focus:border-primary" />
                     </div>
                   </div>
 
@@ -155,27 +139,13 @@ Envoyé depuis le site web cristal-engineering.com
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Téléphone *
                       </label>
-                      <Input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="+243 XXX XXX XXX"
-                        required
-                        className="border-border focus:border-primary"
-                      />
+                      <Input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="+243 XXX XXX XXX" required className="border-border focus:border-primary" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Type de projet *
                       </label>
-                      <select
-                        name="project"
-                        value={formData.project}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full p-3 border border-border rounded-md focus:border-primary focus:outline-none bg-background"
-                      >
+                      <select name="project" value={formData.project} onChange={handleInputChange} required className="w-full p-3 border border-border rounded-md focus:border-primary focus:outline-none bg-background">
                         <option value="">Sélectionnez un type</option>
                         <option value="Résidentiel">Installation Résidentielle</option>
                         <option value="Commercial">Installation Commerciale</option>
@@ -192,22 +162,10 @@ Envoyé depuis le site web cristal-engineering.com
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Décrivez votre projet *
                     </label>
-                    <Textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Décrivez vos besoins: puissance souhaitée, budget approximatif, délais, contraintes particulières..."
-                      rows={4}
-                      required
-                      className="border-border focus:border-primary"
-                    />
+                    <Textarea name="message" value={formData.message} onChange={handleInputChange} placeholder="Décrivez vos besoins: puissance souhaitée, budget approximatif, délais, contraintes particulières..." rows={4} required className="border-border focus:border-primary" />
                   </div>
 
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full gradient-primary text-white shadow-warm"
-                  >
+                  <Button type="submit" size="lg" className="w-full gradient-primary text-white shadow-warm">
                     <MessageCircle className="w-5 h-5 mr-2" />
                     Envoyer via WhatsApp
                   </Button>
@@ -230,12 +188,7 @@ Envoyé depuis le site web cristal-engineering.com
                   Contact Rapide
                 </h3>
                 <div className="space-y-4">
-                  {contactInfo.map((info, index) => (
-                    <button
-                      key={index}
-                      onClick={info.action}
-                      className="flex items-start space-x-3 w-full text-left hover:bg-muted/50 p-3 rounded-lg transition-colors"
-                    >
+                  {contactInfo.map((info, index) => <button key={index} onClick={info.action} className="flex items-start space-x-3 w-full text-left hover:bg-muted/50 p-3 rounded-lg transition-colors">
                       <info.icon className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
                         <div className="font-medium text-foreground text-sm">{info.title}</div>
@@ -243,8 +196,7 @@ Envoyé depuis le site web cristal-engineering.com
                           {info.content}
                         </div>
                       </div>
-                    </button>
-                  ))}
+                    </button>)}
                 </div>
               </CardContent>
             </Card>
@@ -257,12 +209,10 @@ Envoyé depuis le site web cristal-engineering.com
                   Horaires d'Ouverture
                 </h3>
                 <div className="space-y-3">
-                  {businessHours.map((schedule, index) => (
-                    <div key={index} className="flex justify-between items-center">
+                  {businessHours.map((schedule, index) => <div key={index} className="flex justify-between items-center">
                       <span className="text-foreground font-medium text-sm">{schedule.day}</span>
                       <span className="text-muted-foreground text-sm">{schedule.hours}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
                 <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
                   <p className="text-green-700 text-xs font-medium">
@@ -303,15 +253,12 @@ Envoyé depuis le site web cristal-engineering.com
             <div className="bg-muted h-64 flex items-center justify-center">
               <div className="text-center">
                 <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h4 className="text-lg font-semibold text-foreground mb-2">Notre Bureau</h4>
+                <h4 className="text-lg font-semibold text-foreground mb-2">Notre Adresse</h4>
                 <p className="text-muted-foreground mb-4">
                   32, Avenue Kabale, Q/Tshimanga<br />
                   C/Barumbu, Kinshasa - RDC
                 </p>
-                <Button
-                  onClick={() => window.open("https://maps.google.com/?q=32+Avenue+Kabale+Kinshasa", "_blank")}
-                  variant="outline"
-                >
+                <Button onClick={() => window.open("https://maps.google.com/?q=32+Avenue+Kabale+Kinshasa", "_blank")} variant="outline">
                   <MapPin className="w-4 h-4 mr-2" />
                   Voir sur Google Maps
                 </Button>
@@ -320,8 +267,6 @@ Envoyé depuis le site web cristal-engineering.com
           </CardContent>
         </Card>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
