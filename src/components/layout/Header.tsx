@@ -62,6 +62,14 @@ const Header = () => {
             </div>
           </div>
 
+          {/* Mobile Language Toggle + Menu Button */}
+          <div className="md:hidden flex items-center space-x-3">
+            <LanguageToggle />
+            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map(item => <button key={item.name} onClick={() => scrollToSection(item.href)} className="text-foreground hover:text-primary transition-colors duration-200 font-medium">
@@ -69,19 +77,12 @@ const Header = () => {
               </button>)}
           </nav>
 
-          {/* CTA Buttons */}
+          {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <LanguageToggle />
             <Button onClick={() => scrollToSection("#contact")} className="gradient-primary text-white shadow-solar">
               <Zap className="w-4 h-4 mr-2" />
               {t('nav.freeQuote')}
-            </Button>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
@@ -93,9 +94,6 @@ const Header = () => {
                   {item.name}
                 </button>)}
               <div className="pt-2 space-y-2">
-                <div className="flex justify-center mb-2">
-                  <LanguageToggle />
-                </div>
                 <Button onClick={handleWhatsAppClick} variant="outline" size="sm" className="w-full bg-green-500 text-white border-green-500 hover:bg-green-600">
                   <Phone className="w-4 h-4 mr-2" />
                   {t('nav.whatsapp')}
