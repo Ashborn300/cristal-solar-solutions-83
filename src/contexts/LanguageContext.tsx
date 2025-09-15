@@ -117,6 +117,21 @@ const translations = {
     'about.values.sustainability': 'Développement Durable',
     'about.values.sustainabilityDesc': 'Nous contribuons activement à la transition énergétique du Congo vers des solutions plus respectueuses de l\'environnement.',
 
+    // Facebook Section
+    'facebook.badge': 'Rejoignez-nous',
+    'facebook.title': 'Suivez-nous sur Facebook',
+    'facebook.description': 'Découvrez nos dernières réalisations, conseils techniques et actualités sur l\'énergie solaire. Rejoignez notre communauté et restez informé de nos innovations.',
+    'facebook.followTitle': 'Cristal Enterprises',
+    'facebook.followDescription': 'Suivez notre page Facebook officielle pour ne rien manquer de nos projets et bénéficier de conseils d\'experts en énergie solaire.',
+    'facebook.visitPage': 'Visiter notre page',
+    'facebook.subscribe': 'S\'abonner',
+    'facebook.feature1.title': 'Communauté Active',
+    'facebook.feature1.desc': 'Échangez avec d\'autres passionnés d\'énergie solaire',
+    'facebook.feature2.title': 'Projets en Direct',
+    'facebook.feature2.desc': 'Découvrez nos réalisations en temps réel',
+    'facebook.feature3.title': 'Conseils d\'Expert',
+    'facebook.feature3.desc': 'Bénéficiez de notre expertise technique',
+
     // Common
     'common.download': 'Télécharger',
     'common.loading': 'Chargement...',
@@ -218,6 +233,21 @@ const translations = {
     'about.values.serviceDesc': 'Our dedicated team supports you at every stage of your project, from study to maintenance.',
     'about.values.sustainability': 'Sustainable Development',
     'about.values.sustainabilityDesc': 'We actively contribute to Congo\'s energy transition towards more environmentally friendly solutions.',
+
+    // Facebook Section
+    'facebook.badge': 'Join Us',
+    'facebook.title': 'Follow us on Facebook',
+    'facebook.description': 'Discover our latest achievements, technical advice and solar energy news. Join our community and stay informed of our innovations.',
+    'facebook.followTitle': 'Cristal Enterprises',
+    'facebook.followDescription': 'Follow our official Facebook page to not miss any of our projects and benefit from solar energy expert advice.',
+    'facebook.visitPage': 'Visit our page',
+    'facebook.subscribe': 'Subscribe',
+    'facebook.feature1.title': 'Active Community',
+    'facebook.feature1.desc': 'Connect with other solar energy enthusiasts',
+    'facebook.feature2.title': 'Live Projects',
+    'facebook.feature2.desc': 'Discover our achievements in real time',
+    'facebook.feature3.title': 'Expert Advice',
+    'facebook.feature3.desc': 'Benefit from our technical expertise',
 
     // Common
     'common.download': 'Download',
