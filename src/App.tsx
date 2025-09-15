@@ -20,8 +20,8 @@ const App = () => {
   return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      {/* <Toaster />
-      <Sonner /> */}
+      <Toaster />
+      <Sonner />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

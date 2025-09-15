@@ -3,14 +3,9 @@ import Footer from "@/components/sections/Footer";
 import WhatsAppFloat from "@/components/common/WhatsAppFloat";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Download, FileText, User, Briefcase, Award, Phone, Mail, MapPin, Loader2 } from "lucide-react";
-import { useCV } from "@/hooks/useCV";
-import { useToast } from "@/hooks/use-toast";
+import { Download, FileText, User, Briefcase, Award, Phone, Mail, MapPin } from "lucide-react";
 
 const CV = () => {
-  const { activeCV, downloadCV, loading, getPublicURL } = useCV();
-  const { toast } = useToast();
-
   const handleDownloadCV = () => {
     window.open("https://drive.google.com/uc?id=1D_Gw8CtnJ4JlmIUEdGhY7lckjXWLFhyb", "_blank");
   };

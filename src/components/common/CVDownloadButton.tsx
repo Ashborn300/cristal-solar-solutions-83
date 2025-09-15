@@ -1,7 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Download, FileText, Loader2 } from "lucide-react";
-import { useCV } from "@/hooks/useCV";
-import { useToast } from "@/hooks/use-toast";
+import { Download, FileText } from "lucide-react";
 
 interface CVDownloadButtonProps {
   variant?: "default" | "outline" | "secondary" | "ghost" | "link";
@@ -18,8 +16,6 @@ const CVDownloadButton = ({
   showIcon = true,
   children 
 }: CVDownloadButtonProps) => {
-  const { activeCV, downloadCV, loading } = useCV();
-  const { toast } = useToast();
 
   const handleDownloadCV = () => {
     window.open("https://drive.google.com/uc?id=1D_Gw8CtnJ4JlmIUEdGhY7lckjXWLFhyb", "_blank");
@@ -28,17 +24,6 @@ const CVDownloadButton = ({
   const handleViewCV = () => {
     window.open("https://drive.google.com/uc?id=1D_Gw8CtnJ4JlmIUEdGhY7lckjXWLFhyb", "_blank");
   };
-
-  if (loading) {
-    return (
-      <div className={`flex gap-2 ${className}`}>
-        <Button variant={variant} size={size} disabled>
-          <Loader2 className="h-4 w-4 animate-spin mr-2" />
-          Chargement...
-        </Button>
-      </div>
-    );
-  }
 
   return (
     <div className={`flex gap-2 ${className}`}>
