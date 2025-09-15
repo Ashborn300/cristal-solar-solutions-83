@@ -29,7 +29,7 @@ const Leadership = () => {
             
             <p className="text-lg text-muted-foreground mb-6">
               Notre expertise technique s'appuie sur un leadership de terrain exceptionnel. 
-              Depute, responsable technique et chef d'équipe, supervise personnellement chaque 
+              Député Wilondja, responsable technique et chef d'équipe, supervise personnellement chaque 
               installation dans nos projets ruraux, garantissant la qualité et la durabilité 
               de nos solutions énergétiques.
             </p>
