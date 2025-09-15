@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Download, FileText } from "lucide-react";
+import { Download, FileText, Loader2 } from "lucide-react";
+import { useCV } from "@/hooks/useCV";
+import { useToast } from "@/hooks/use-toast";
 
 interface CVDownloadButtonProps {
   variant?: "default" | "outline" | "secondary" | "ghost" | "link";
@@ -16,18 +18,48 @@ const CVDownloadButton = ({
   showIcon = true,
   children 
 }: CVDownloadButtonProps) => {
-  const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/assets/CV_EXPERT_DEPUTE_23_AVRIL_2025_FR.pdf';
-    link.download = 'CV_EXPERT_DEPUTE_WILONDJA.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const { activeCV, downloadCV, loading } = useCV();
+  const { toast } = useToast();
+
+  const handleDownloadCV = async () => {
+    if (!activeCV) {
+      toast({
+        title: "CV non disponible",
+        description: "Aucun CV n'est actuellement disponible au téléchargement.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const success = await downloadCV();
+    if (success) {
+      toast({
+        title: "Téléchargement réussi",
+        description: "Le CV a été téléchargé avec succès.",
+      });
+    } else {
+      toast({
+        title: "Erreur de téléchargement",
+        description: "Impossible de télécharger le CV. Veuillez réessayer.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleViewCV = () => {
     window.location.href = '/cv';
   };
+
+  if (loading) {
+    return (
+      <div className={`flex gap-2 ${className}`}>
+        <Button variant={variant} size={size} disabled>
+          <Loader2 className="h-4 w-4 animate-spin mr-2" />
+          Chargement...
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div className={`flex gap-2 ${className}`}>
@@ -45,6 +77,7 @@ const CVDownloadButton = ({
         variant="outline"
         size={size}
         className="gap-2"
+        disabled={!activeCV}
       >
         {showIcon && <Download className="h-4 w-4" />}
         Télécharger PDF

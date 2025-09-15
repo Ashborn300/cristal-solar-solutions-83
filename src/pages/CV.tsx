@@ -3,16 +3,37 @@ import Footer from "@/components/sections/Footer";
 import WhatsAppFloat from "@/components/common/WhatsAppFloat";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Download, FileText, User, Briefcase, Award, Phone, Mail, MapPin } from "lucide-react";
+import { Download, FileText, User, Briefcase, Award, Phone, Mail, MapPin, Loader2 } from "lucide-react";
+import { useCV } from "@/hooks/useCV";
+import { useToast } from "@/hooks/use-toast";
 
 const CV = () => {
-  const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/assets/CV_EXPERT_DEPUTE_23_AVRIL_2025_FR.pdf';
-    link.download = 'CV_EXPERT_DEPUTE_WILONDJA.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const { activeCV, downloadCV, loading, getPublicURL } = useCV();
+  const { toast } = useToast();
+
+  const handleDownloadCV = async () => {
+    if (!activeCV) {
+      toast({
+        title: "CV non disponible",
+        description: "Aucun CV n'est actuellement disponible au téléchargement.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const success = await downloadCV();
+    if (success) {
+      toast({
+        title: "Téléchargement réussi",
+        description: "Le CV a été téléchargé avec succès.",
+      });
+    } else {
+      toast({
+        title: "Erreur de téléchargement",
+        description: "Impossible de télécharger le CV. Veuillez réessayer.",
+        variant: "destructive"
+      });
+    }
   };
 
   const competences = [
@@ -71,14 +92,24 @@ const CV = () => {
             <p className="text-xl text-muted-foreground mb-8">
               WILONDJA Watutakubi Député - Expert en Systèmes Solaires
             </p>
-            <Button 
-              onClick={handleDownloadCV}
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
-            >
-              <Download className="h-5 w-5" />
-              Télécharger le CV (PDF)
-            </Button>
+            <div className="flex justify-center">
+              {loading ? (
+                <Button disabled size="lg" className="gap-2">
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                  Chargement...
+                </Button>
+              ) : (
+                <Button 
+                  onClick={handleDownloadCV}
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
+                  disabled={!activeCV}
+                >
+                  <Download className="h-5 w-5" />
+                  Télécharger le CV (PDF)
+                </Button>
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -114,14 +145,22 @@ const CV = () => {
                     </div>
                   </div>
                   <div className="flex justify-center items-center">
-                    <Button 
-                      onClick={handleDownloadCV}
-                      variant="outline"
-                      className="gap-2"
-                    >
-                      <Download className="h-4 w-4" />
-                      Télécharger CV Complet
-                    </Button>
+                    {loading ? (
+                      <Button disabled variant="outline" className="gap-2">
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        Chargement...
+                      </Button>
+                    ) : (
+                      <Button 
+                        onClick={handleDownloadCV}
+                        variant="outline"
+                        className="gap-2"
+                        disabled={!activeCV}
+                      >
+                        <Download className="h-4 w-4" />
+                        Télécharger CV Complet
+                      </Button>
+                    )}
                   </div>
                 </div>
               </CardContent>
@@ -181,13 +220,21 @@ const CV = () => {
                   ))}
                 </div>
                 <div className="mt-8 text-center">
-                  <Button 
-                    onClick={handleDownloadCV}
-                    className="gap-2"
-                  >
-                    <Download className="h-4 w-4" />
-                    Voir l'expérience complète (PDF)
-                  </Button>
+                  {loading ? (
+                    <Button disabled className="gap-2">
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Chargement...
+                    </Button>
+                  ) : (
+                    <Button 
+                      onClick={handleDownloadCV}
+                      className="gap-2"
+                      disabled={!activeCV}
+                    >
+                      <Download className="h-4 w-4" />
+                      Voir l'expérience complète (PDF)
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
