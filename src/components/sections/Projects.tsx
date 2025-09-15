@@ -7,6 +7,10 @@ import solarFieldImage from "@/assets/solar-panels-field.jpg";
 import solarTeamImage from "@/assets/solar-team-planning.jpg";
 import solarRuralImage from "@/assets/solar-rural-installation.jpg";
 import constructionTeamImage from "@/assets/construction-team.jpg";
+// Import gallery images
+import projetMemling1 from "@/assets/projet-memling-1.jpg";
+import projetMemling2 from "@/assets/projet-memling-2.jpg";
+import projetMemling3 from "@/assets/projet-memling-3.jpg";
 
 const Projects = () => {
   const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
@@ -86,6 +90,47 @@ const Projects = () => {
             Découvrez quelques-uns de nos projets phares qui illustrent notre expertise 
             dans différents secteurs d'activité.
           </p>
+        </div>
+
+        {/* Featured Project Gallery - Memling Project */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-foreground mb-4">
+              Projet Phare
+              <span className="block gradient-text">Hôtel Memling - Burotop Iris</span>
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Réhabilitation d'un système solaire entre l'Hôtel Memling et Burotop Iris à Kinshasa. 
+              Sozacom et Beautour visible à droite.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { image: projetMemling1, title: "Installation sur toiture 1" },
+              { image: projetMemling2, title: "Installation sur toiture 2" },
+              { image: projetMemling3, title: "Vue d'ensemble du projet" }
+            ].map((item, index) => (
+              <div 
+                key={index} 
+                className="group relative overflow-hidden rounded-lg shadow-lg hover-lift animate-fadeInUp"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="font-medium">{item.title}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Projects Grid */}
