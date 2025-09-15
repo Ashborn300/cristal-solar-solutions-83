@@ -5,7 +5,7 @@ import solarHouseImage from "@/assets/solar-house-modern.jpg";
 import solarMaintenanceImage from "@/assets/solar-maintenance.jpg";
 import electricalWorkImage from "@/assets/electrical-work.jpg";
 import solarRuralImage from "@/assets/solar-rural-installation.jpg";
-import constructionTeamImage from "@/assets/construction-team.jpg";
+import solarKitImage from "@/assets/solar-kit-complete.jpg";
 
 const Services = () => {
   const handleWhatsAppClick = () => {
@@ -24,7 +24,7 @@ const Services = () => {
       icon: Truck,
       title: "Fourniture et Installation",
       description: "Approvisionnement en équipements solaires de qualité premium et installation professionnelle par nos équipes certifiées.",
-      image: constructionTeamImage,
+      image: solarKitImage,
       features: ["Panneaux haute performance", "Installation certifiée", "Mise en service", "Formation utilisateur"]
     },
     {
