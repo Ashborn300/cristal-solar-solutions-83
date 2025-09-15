@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Menu, X, Zap, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useNavigate } from "react-router-dom";
 import LanguageToggle from "@/components/common/LanguageToggle";
 import logoImage from "@/assets/logo-cristal.jpg";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useLanguage();
+  const navigate = useNavigate();
   
   const navigation = [{
     name: t('nav.home'),
@@ -31,17 +33,23 @@ const Header = () => {
     href: "#contact"
   }];
   const scrollToSection = (href: string) => {
+    setIsMenuOpen(false);
+    
     if (href.startsWith("/")) {
-      window.location.href = href;
+      navigate(href);
       return;
     }
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
-    setIsMenuOpen(false);
+    
+    // Small delay to allow menu to close before scrolling
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    }, 100);
   };
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/243819257778", "_blank");
