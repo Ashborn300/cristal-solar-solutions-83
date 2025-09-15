@@ -1,7 +1,7 @@
 import { Calculator, Truck, Wrench, Network, Lightbulb, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import solarTeamImage from "@/assets/solar-team-planning.jpg";
+import solarHouseImage from "@/assets/solar-house-modern.jpg";
 import solarMaintenanceImage from "@/assets/solar-maintenance.jpg";
 import electricalWorkImage from "@/assets/electrical-work.jpg";
 import solarRuralImage from "@/assets/solar-rural-installation.jpg";
@@ -17,7 +17,7 @@ const Services = () => {
       icon: Calculator,
       title: "Études et Dimensionnements Solaires",
       description: "Analyse complète de vos besoins énergétiques et conception sur mesure de votre installation solaire pour une efficacité optimale.",
-      image: solarTeamImage,
+      image: solarHouseImage,
       features: ["Analyse de consommation", "Calcul de rentabilité", "Plans techniques détaillés", "Simulation 3D"]
     },
     {
