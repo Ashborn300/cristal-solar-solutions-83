@@ -17,6 +17,11 @@ import projetRigini2 from "@/assets/projet-rigini-2.jpg";
 import projetRigini3 from "@/assets/projet-rigini-3.jpg";
 import projetRigini4 from "@/assets/projet-rigini-4.jpg";
 import projetRigini5 from "@/assets/projet-rigini-5.jpg";
+// Import Rhigine Industrielle project images
+import projetRhigineIndustrielle1 from "@/assets/projet-rhigine-industrielle-1.jpg";
+import projetRhigineIndustrielle2 from "@/assets/projet-rhigine-industrielle-2.jpg";
+import projetRhigineIndustrielle3 from "@/assets/projet-rhigine-industrielle-3.jpg";
+import projetRhigineIndustrielle4 from "@/assets/projet-rhigine-industrielle-4.jpg";
 
 const Projects = () => {
   const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
@@ -163,6 +168,47 @@ const Projects = () => {
                 key={index} 
                 className="group relative overflow-hidden rounded-lg shadow-lg hover-lift animate-fadeInUp"
                 style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="font-medium">{item.title}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Featured Project Gallery - Rhigine Industrielle Project */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-foreground mb-4">
+              Projet Industriel
+              <span className="block gradient-text">Travaux d'installation à Rhigine et 10ème Rue industrielle</span>
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Installation complète de panneaux solaires sur toiture industrielle à Rhigine et 10ème Rue industrielle, Kinshasa
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {[
+              { image: projetRhigineIndustrielle1, title: "Panneaux solaires sur toiture bleue" },
+              { image: projetRhigineIndustrielle2, title: "Installation de haute qualité" },
+              { image: projetRhigineIndustrielle3, title: "Vue panoramique de l'installation" },
+              { image: projetRhigineIndustrielle4, title: "Équipe technique au travail" }
+            ].map((item, index) => (
+              <div 
+                key={index} 
+                className="group relative overflow-hidden rounded-lg shadow-lg hover-lift animate-fadeInUp"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
