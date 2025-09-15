@@ -1,6 +1,7 @@
 import { Calculator, Truck, Wrench, Network, Lightbulb, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 import solarHouseImage from "@/assets/solar-house-modern.jpg";
 import solarMaintenanceImage from "@/assets/solar-maintenance.jpg";
 import electricalWorkImage from "@/assets/electrical-work.jpg";
@@ -8,6 +9,8 @@ import solarRuralImage from "@/assets/solar-rural-installation.jpg";
 import solarKitImage from "@/assets/solar-kit-complete.jpg";
 
 const Services = () => {
+  const { t } = useLanguage();
+  
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/243819257778", "_blank");
   };
@@ -15,38 +18,38 @@ const Services = () => {
   const services = [
     {
       icon: Calculator,
-      title: "Études et Dimensionnements Solaires",
-      description: "Analyse complète de vos besoins énergétiques et conception sur mesure de votre installation solaire pour une efficacité optimale.",
+      title: t('services.studies.title'),
+      description: t('services.studies.description'),
       image: solarHouseImage,
-      features: ["Analyse de consommation", "Calcul de rentabilité", "Plans techniques détaillés", "Simulation 3D"]
+      features: [t('services.studies.feature1'), t('services.studies.feature2'), t('services.studies.feature3'), t('services.studies.feature4')]
     },
     {
       icon: Truck,
-      title: "Fourniture et Installation",
-      description: "Approvisionnement en équipements solaires de qualité premium et installation professionnelle par nos équipes certifiées.",
+      title: t('services.supply.title'),
+      description: t('services.supply.description'),
       image: solarKitImage,
-      features: ["Panneaux haute performance", "Installation certifiée", "Mise en service", "Formation utilisateur"]
+      features: [t('services.supply.feature1'), t('services.supply.feature2'), t('services.supply.feature3'), t('services.supply.feature4')]
     },
     {
       icon: Wrench,
-      title: "Maintenance et Dépannage",
-      description: "Service après-vente complet avec maintenance préventive et interventions rapides pour assurer la longévité de vos équipements.",
+      title: t('services.maintenance.title'),
+      description: t('services.maintenance.description'),
       image: solarMaintenanceImage,
-      features: ["Maintenance préventive", "Dépannage 24h/7j", "Pièces de rechange", "Garantie étendue"]
+      features: [t('services.maintenance.feature1'), t('services.maintenance.feature2'), t('services.maintenance.feature3'), t('services.maintenance.feature4')]
     },
     {
       icon: Network,
-      title: "Solutions Hybrides et On-Grid",
-      description: "Systèmes innovants combinant solaire, réseau électrique et stockage pour une alimentation continue et optimisée.",
+      title: t('services.hybrid.title'),
+      description: t('services.hybrid.description'),
       image: electricalWorkImage,
-      features: ["Systèmes hybrides", "Connexion réseau", "Stockage intelligent", "Monitoring avancé"]
+      features: [t('services.hybrid.feature1'), t('services.hybrid.feature2'), t('services.hybrid.feature3'), t('services.hybrid.feature4')]
     },
     {
       icon: Lightbulb,
-      title: "Conseil Technique Énergies Renouvelables",
-      description: "Expertise technique et conseil stratégique pour optimiser votre transition vers les énergies renouvelables.",
+      title: t('services.consulting.title'),
+      description: t('services.consulting.description'),
       image: solarRuralImage,
-      features: ["Audit énergétique", "Conseil stratégique", "Formation technique", "Accompagnement projet"]
+      features: [t('services.consulting.feature1'), t('services.consulting.feature2'), t('services.consulting.feature3'), t('services.consulting.feature4')]
     }
   ];
 
@@ -56,15 +59,14 @@ const Services = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
-            <span className="text-primary font-medium">Nos Services</span>
+            <span className="text-primary font-medium">{t('services.title')}</span>
           </div>
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            Solutions Solaires
-            <span className="block gradient-text">Complètes & Professionnelles</span>
+            {t('services.heading')}
+            <span className="block gradient-text">{t('services.subheading')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Découvrez notre gamme complète de services pour votre transition vers l'énergie solaire.
-            Plus de 14 ans d'expertise au service de vos projets énergétiques.
+            {t('services.description')}
           </p>
         </div>
 
@@ -113,7 +115,7 @@ const Services = () => {
                   className="w-full group border-primary text-primary hover:bg-primary hover:text-white"
                 >
                   <Phone className="w-4 h-4 mr-2" />
-                  Demander un devis
+                  {t('services.requestQuote')}
                 </Button>
               </CardContent>
             </Card>
@@ -123,11 +125,10 @@ const Services = () => {
         {/* CTA Section */}
         <div className="text-center bg-card rounded-2xl p-8 shadow-solar">
           <h3 className="text-2xl font-bold text-foreground mb-4">
-            Prêt à passer au solaire ?
+            {t('services.cta.title')}
           </h3>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Contactez-nous dès aujourd'hui pour une consultation gratuite et découvrez comment 
-            l'énergie solaire peut transformer votre consommation énergétique.
+            {t('services.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -136,7 +137,7 @@ const Services = () => {
               className="gradient-primary text-white shadow-warm"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Consultation Gratuite
+              {t('services.cta.freeConsultation')}
             </Button>
             <Button
               variant="outline"
@@ -146,7 +147,7 @@ const Services = () => {
                 if (element) element.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              En savoir plus
+              {t('services.cta.learnMore')}
             </Button>
           </div>
         </div>

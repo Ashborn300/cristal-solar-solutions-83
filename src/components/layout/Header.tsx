@@ -1,29 +1,33 @@
 import { useState } from "react";
 import { Menu, X, Zap, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageToggle from "@/components/common/LanguageToggle";
 import logoImage from "@/assets/logo-cristal.jpg";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
+  
   const navigation = [{
-    name: "Accueil",
+    name: t('nav.home'),
     href: "#accueil"
   }, {
-    name: "Services",
+    name: t('nav.services'),
     href: "#services"
   }, {
-    name: "À propos",
+    name: t('nav.about'),
     href: "#about"
   }, {
-    name: "Réalisations",
+    name: t('nav.projects'),
     href: "#realisations"
   }, {
-    name: "Témoignages",
+    name: t('nav.testimonials'),
     href: "#temoignages"
   }, {
-    name: "CV",
+    name: t('nav.cv'),
     href: "/cv"
   }, {
-    name: "Contact",
+    name: t('nav.contact'),
     href: "#contact"
   }];
   const scrollToSection = (href: string) => {
@@ -67,10 +71,10 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            
+            <LanguageToggle />
             <Button onClick={() => scrollToSection("#contact")} className="gradient-primary text-white shadow-solar">
               <Zap className="w-4 h-4 mr-2" />
-              Devis Gratuit
+              {t('nav.freeQuote')}
             </Button>
           </div>
 
@@ -89,13 +93,16 @@ const Header = () => {
                   {item.name}
                 </button>)}
               <div className="pt-2 space-y-2">
+                <div className="flex justify-center mb-2">
+                  <LanguageToggle />
+                </div>
                 <Button onClick={handleWhatsAppClick} variant="outline" size="sm" className="w-full bg-green-500 text-white border-green-500 hover:bg-green-600">
                   <Phone className="w-4 h-4 mr-2" />
-                  WhatsApp
+                  {t('nav.whatsapp')}
                 </Button>
                 <Button onClick={() => scrollToSection("#contact")} className="w-full gradient-primary text-white">
                   <Zap className="w-4 h-4 mr-2" />
-                  Devis Gratuit
+                  {t('nav.freeQuote')}
                 </Button>
               </div>
             </div>

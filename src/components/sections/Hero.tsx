@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import AnimatedNumber from "@/components/common/AnimatedNumber";
 import CVDownloadButton from "@/components/common/CVDownloadButton";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import solarFieldImage from "@/assets/solar-panels-field.jpg";
 
 const Hero = () => {
   const { isVisible: statsVisible, elementRef: statsRef } = useScrollAnimation({ threshold: 0.5 });
+  const { t } = useLanguage();
 
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/243819257778", "_blank");
@@ -40,20 +42,19 @@ const Hero = () => {
               <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
                 <span className="text-sm font-medium flex items-center">
                   <Award className="w-4 h-4 mr-2" />
-                  14 ans d'expertise certifiée
+                  {t('hero.badge')}
                 </span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight animate-fadeInUp">
-                Solutions Solaires
+                {t('hero.title')}
                 <span className="block text-white text-shadow">
-                  Durables & Fiables
+                  {t('hero.subtitle')}
                 </span>
               </h1>
 
               <p className="text-xl text-white/90 max-w-lg animate-fadeInUp animation-delay-200">
-                CRISTAL ALTERNATIVE ENGINEERING - Votre partenaire de confiance pour 
-                l'énergie solaire à Kinshasa. Études, installation, maintenance et conseil.
+                {t('hero.description')}
               </p>
             </div>
 
@@ -63,19 +64,19 @@ const Hero = () => {
                 <div className="text-3xl font-bold text-white animate-counter">
                   <AnimatedNumber value={14} suffix="+" />
                 </div>
-                <div className="text-sm text-white/80">Années d'expérience</div>
+                <div className="text-sm text-white/80">{t('hero.years')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-white animate-counter">
                   <AnimatedNumber value={500} suffix="+" delay={200} />
                 </div>
-                <div className="text-sm text-white/80">Projets réalisés</div>
+                <div className="text-sm text-white/80">{t('hero.projects')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-white animate-counter">
                   <AnimatedNumber value={98} suffix="%" delay={400} />
                 </div>
-                <div className="text-sm text-white/80">Clients satisfaits</div>
+                <div className="text-sm text-white/80">{t('hero.satisfaction')}</div>
               </div>
             </div>
 
@@ -87,7 +88,7 @@ const Hero = () => {
                 className="bg-white text-primary hover:bg-white/90 shadow-warm group"
               >
                 <Zap className="w-5 h-5 mr-2 group-hover:animate-pulse" />
-                Devis Gratuit
+                {t('hero.freeQuote')}
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               
@@ -98,7 +99,7 @@ const Hero = () => {
                 className="border-white text-white hover:bg-white hover:text-primary bg-white/10 backdrop-blur-sm"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                Contact WhatsApp
+                {t('hero.contactWhatsapp')}
               </Button>
             </div>
 
@@ -108,7 +109,7 @@ const Hero = () => {
                 variant="outline" 
                 className="justify-center sm:justify-start"
               >
-                Voir notre CV d'Expert
+                {t('hero.viewCV')}
               </CVDownloadButton>
             </div>
           </div>
@@ -122,10 +123,10 @@ const Hero = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">
-                    Solutions Complètes
+                    {t('hero.completeSolutions')}
                   </h3>
                   <p className="text-white/80">
-                    De l'étude à l'installation, nous couvrons tous vos besoins en énergie solaire.
+                    {t('hero.completeSolutionsDesc')}
                   </p>
                 </div>
               </div>
@@ -138,10 +139,10 @@ const Hero = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">
-                    Expertise Locale
+                    {t('hero.localExpertise')}
                   </h3>
                   <p className="text-white/80">
-                    14 ans d'expérience au service des entreprises et particuliers de Kinshasa.
+                    {t('hero.localExpertiseDesc')}
                   </p>
                 </div>
               </div>
@@ -154,10 +155,10 @@ const Hero = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">
-                    Garantie Qualité
+                    {t('hero.qualityGuarantee')}
                   </h3>
                   <p className="text-white/80">
-                    Maintenance et support technique pour la durabilité de vos installations.
+                    {t('hero.qualityGuaranteeDesc')}
                   </p>
                 </div>
               </div>
