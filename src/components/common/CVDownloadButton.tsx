@@ -21,33 +21,12 @@ const CVDownloadButton = ({
   const { activeCV, downloadCV, loading } = useCV();
   const { toast } = useToast();
 
-  const handleDownloadCV = async () => {
-    if (!activeCV) {
-      toast({
-        title: "CV non disponible",
-        description: "Aucun CV n'est actuellement disponible au téléchargement.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    const success = await downloadCV();
-    if (success) {
-      toast({
-        title: "Téléchargement réussi",
-        description: "Le CV a été téléchargé avec succès.",
-      });
-    } else {
-      toast({
-        title: "Erreur de téléchargement",
-        description: "Impossible de télécharger le CV. Veuillez réessayer.",
-        variant: "destructive"
-      });
-    }
+  const handleDownloadCV = () => {
+    window.open("https://drive.google.com/uc?id=1D_Gw8CtnJ4JlmIUEdGhY7lckjXWLFhyb", "_blank");
   };
 
   const handleViewCV = () => {
-    window.location.href = '/cv';
+    window.open("https://drive.google.com/uc?id=1D_Gw8CtnJ4JlmIUEdGhY7lckjXWLFhyb", "_blank");
   };
 
   if (loading) {
@@ -77,7 +56,6 @@ const CVDownloadButton = ({
         variant="outline"
         size={size}
         className="gap-2"
-        disabled={!activeCV}
       >
         {showIcon && <Download className="h-4 w-4" />}
         Télécharger PDF
