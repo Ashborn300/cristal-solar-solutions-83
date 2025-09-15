@@ -24,7 +24,7 @@ const Leadership = () => {
             </div>
             
             <h2 className="text-4xl font-bold text-foreground mb-6">
-              <span className="gradient-text">Depute leads the engineering and installation team at the village.</span>
+              <span className="gradient-text">Député Wilondja leads the engineering and installation team at the village.</span>
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6">
