@@ -8,6 +8,7 @@ import solarFieldImage from "@/assets/solar-panels-field.jpg";
 
 const Hero = () => {
   const { isVisible: statsVisible, elementRef: statsRef } = useScrollAnimation({ threshold: 0.5 });
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.2 });
   const { t } = useLanguage();
 
   const handleWhatsAppClick = () => {
@@ -22,7 +23,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="accueil" className="relative min-h-screen flex items-center overflow-hidden">
+    <section ref={elementRef} id="accueil" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -37,7 +38,7 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="text-white space-y-8">
+          <div className={`text-white space-y-8 scroll-animate ${isVisible ? 'in-view' : ''}`}>
             <div className="space-y-4">
               <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
                 <span className="text-sm font-medium flex items-center">
@@ -46,20 +47,20 @@ const Hero = () => {
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight animate-fadeInUp">
+              <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight ${isVisible ? 'scroll-animate in-view' : 'scroll-animate'}`}>
                 {t('hero.title')}
                 <span className="block text-white text-shadow">
                   {t('hero.subtitle')}
                 </span>
               </h1>
 
-              <p className="text-xl text-white/90 max-w-lg animate-fadeInUp animation-delay-200">
+              <p className={`text-xl text-white/90 max-w-lg ${isVisible ? 'scroll-animate in-view' : 'scroll-animate'}`} style={{ animationDelay: '0.2s' }}>
                 {t('hero.description')}
               </p>
             </div>
 
             {/* Stats */}
-            <div ref={statsRef} className="grid grid-cols-3 gap-6 py-8 animate-fadeInUp animation-delay-400">
+            <div ref={statsRef} className={`grid grid-cols-3 gap-6 py-8 ${statsVisible ? 'scroll-animate in-view' : 'scroll-animate'}`} style={{ animationDelay: '0.4s' }}>
               <div className="text-center">
                 <div className="text-3xl font-bold text-white animate-counter">
                   <AnimatedNumber value={14} suffix="+" />
@@ -81,7 +82,7 @@ const Hero = () => {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 animate-fadeInUp animation-delay-600">
+            <div className={`flex flex-col sm:flex-row gap-4 ${isVisible ? 'scroll-animate in-view' : 'scroll-animate'}`} style={{ animationDelay: '0.6s' }}>
               <Button
                 onClick={scrollToContact}
                 size="lg"
@@ -104,7 +105,7 @@ const Hero = () => {
             </div>
 
             {/* CV Download Section */}
-            <div className="mt-6 animate-fadeInUp animation-delay-800">
+            <div className={`mt-6 ${isVisible ? 'scroll-animate in-view' : 'scroll-animate'}`} style={{ animationDelay: '0.8s' }}>
               <CVDownloadButton 
                 variant="outline" 
                 className="justify-center sm:justify-start"
@@ -115,7 +116,7 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Features */}
-          <div className="space-y-6 animate-slideInLeft animation-delay-400">
+          <div className={`space-y-6 scroll-animate-left ${isVisible ? 'in-view' : ''}`} style={{ animationDelay: '0.4s' }}>
             <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover-lift">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-solar-orange rounded-lg flex items-center justify-center">

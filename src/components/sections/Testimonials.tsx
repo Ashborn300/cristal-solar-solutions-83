@@ -4,7 +4,7 @@ import AnimatedNumber from "@/components/common/AnimatedNumber";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Testimonials = () => {
-  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.2 });
 
   const testimonials = [
     {
@@ -113,10 +113,10 @@ const Testimonials = () => {
   };
 
   return (
-    <section ref={elementRef} id="temoignages" className="py-20 bg-background">
+    <section ref={elementRef} id="temoignages" className={`py-20 bg-background scroll-animate ${isVisible ? 'in-view' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 scroll-animate ${isVisible ? 'in-view' : ''}`}>
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
             <span className="text-primary font-medium">Témoignages Clients</span>
           </div>
@@ -130,11 +130,11 @@ const Testimonials = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-animate ${isVisible ? 'in-view' : ''}`}>
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="group hover-lift bg-card border-border animate-fadeInUp relative overflow-hidden"
+              className="group hover-lift bg-card border-border relative overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Decorative quote */}

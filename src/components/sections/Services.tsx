@@ -73,11 +73,11 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 scroll-animate ${isVisible ? 'in-view' : ''}`}>
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group hover-lift bg-background border-border overflow-hidden animate-fadeInUp"
+              className="group hover-lift bg-background border-border overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative h-48 overflow-hidden">
