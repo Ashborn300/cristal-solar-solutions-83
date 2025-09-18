@@ -5,10 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const Contact = () => {
-  const { toast } = useToast();
-  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.2 });
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -91,10 +91,10 @@ Envoyé depuis le site web cristal-engineering.com
     day: "Dimanche",
     hours: "Urgences uniquement"
   }];
-  return <section ref={elementRef} id="contact" className={`py-20 bg-solar-light scroll-animate ${isVisible ? 'in-view' : ''}`}>
+  return <section id="contact" className="py-20 bg-solar-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className={`text-center mb-16 scroll-animate ${isVisible ? 'in-view' : ''}`}>
+        <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
             <span className="text-primary font-medium">Contact</span>
           </div>
@@ -111,7 +111,7 @@ Envoyé depuis le site web cristal-engineering.com
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className={`bg-background border-border shadow-solar scroll-animate-left ${isVisible ? 'in-view' : ''}`}>
+            <Card className="bg-background border-border shadow-solar">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
                   <Send className="w-6 h-6 mr-3 text-primary" />
@@ -180,7 +180,7 @@ Envoyé depuis le site web cristal-engineering.com
           </div>
 
           {/* Contact Info */}
-          <div className={`space-y-6 scroll-animate ${isVisible ? 'in-view' : ''}`}>
+          <div className="space-y-6">
             {/* Quick Contact */}
             <Card className="bg-background border-border">
               <CardContent className="p-6">

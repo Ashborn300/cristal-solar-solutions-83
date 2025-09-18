@@ -39,7 +39,7 @@ const About = () => {
     <section ref={contentRef} id="about" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className={`text-center mb-16 scroll-animate ${contentVisible ? 'in-view' : ''}`}>
+        <div className="text-center mb-16 animate-fadeInUp">
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
             <span className="text-primary font-medium">{t('about.badge')}</span>
           </div>
@@ -55,7 +55,7 @@ const About = () => {
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Left - Image */}
-          <div className={`relative scroll-animate-left ${contentVisible ? 'in-view' : ''}`}>
+          <div className="relative animate-slideInLeft">
             <div className="relative overflow-hidden rounded-2xl shadow-solar">
               <img
                 src={solarWorkerImage}
@@ -66,7 +66,7 @@ const About = () => {
             </div>
             
             {/* Stats Card Overlay */}
-            <Card className={`absolute -bottom-8 -right-8 bg-white shadow-warm scroll-animate-scale ${contentVisible ? 'in-view' : ''}`} style={{ animationDelay: '0.4s' }}>
+            <Card className="absolute -bottom-8 -right-8 bg-white shadow-warm animate-scaleIn animation-delay-400">
               <CardContent className="p-6">
                 <div className="text-3xl font-bold gradient-text mb-1">
                   <AnimatedNumber value={14} suffix="+" />
@@ -80,7 +80,7 @@ const About = () => {
           </div>
 
           {/* Right - Content */}
-          <div className={`space-y-8 scroll-animate ${contentVisible ? 'in-view' : ''}`}>
+          <div className="space-y-8 animate-fadeInUp">
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-4">
                 {t('about.ourStory')}
@@ -119,9 +119,9 @@ const About = () => {
         </div>
 
         {/* Stats Section */}
-        <div className={`grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16 scroll-animate ${statsVisible ? 'in-view' : ''}`} ref={statsRef}>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16" ref={statsRef}>
           {stats.map((stat, index) => (
-            <Card key={index} className="text-center hover-lift" style={{ animationDelay: `${index * 0.1}s` }}>
+            <Card key={index} className="text-center hover-lift animate-scaleIn" style={{ animationDelay: `${index * 0.1}s` }}>
               <CardContent className="p-6">
                 <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
                 <div className="text-3xl font-bold gradient-text mb-2 animate-counter">
@@ -146,9 +146,9 @@ const About = () => {
             </p>
           </div>
 
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 scroll-animate ${contentVisible ? 'in-view' : ''}`}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="text-center hover-lift" style={{ animationDelay: `${index * 0.2}s` }}>
+              <Card key={index} className="text-center hover-lift animate-fadeInUp" style={{ animationDelay: `${index * 0.2}s` }}>
                 <CardContent className="p-8">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                     <value.icon className="w-8 h-8 text-primary" />

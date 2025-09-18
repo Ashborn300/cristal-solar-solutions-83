@@ -2,7 +2,6 @@ import { Calculator, Truck, Wrench, Network, Lightbulb, Phone } from "lucide-rea
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import solarHouseImage from "@/assets/solar-house-modern.jpg";
 import solarMaintenanceImage from "@/assets/solar-maintenance.jpg";
 import electricalWorkImage from "@/assets/electrical-work.jpg";
@@ -11,7 +10,6 @@ import solarKitImage from "@/assets/solar-kit-complete.jpg";
 
 const Services = () => {
   const { t } = useLanguage();
-  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.2 });
   
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/243819257778", "_blank");
@@ -56,10 +54,10 @@ const Services = () => {
   ];
 
   return (
-    <section ref={elementRef} id="services" className={`py-20 bg-solar-light scroll-animate ${isVisible ? 'in-view' : ''}`}>
+    <section id="services" className="py-20 bg-solar-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className={`text-center mb-16 scroll-animate ${isVisible ? 'in-view' : ''}`}>
+        <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
             <span className="text-primary font-medium">{t('services.title')}</span>
           </div>
@@ -73,11 +71,11 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 scroll-animate ${isVisible ? 'in-view' : ''}`}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group hover-lift bg-background border-border overflow-hidden"
+              className="group hover-lift bg-background border-border overflow-hidden animate-fadeInUp"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative h-48 overflow-hidden">
@@ -125,7 +123,7 @@ const Services = () => {
         </div>
 
         {/* CTA Section */}
-        <div className={`text-center bg-card rounded-2xl p-8 shadow-solar scroll-animate-scale ${isVisible ? 'in-view' : ''}`}>
+        <div className="text-center bg-card rounded-2xl p-8 shadow-solar">
           <h3 className="text-2xl font-bold text-foreground mb-4">
             {t('services.cta.title')}
           </h3>

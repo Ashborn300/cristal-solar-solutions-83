@@ -24,7 +24,7 @@ import projetRhigineIndustrielle3 from "@/assets/projet-rhigine-industrielle-3.j
 import projetRhigineIndustrielle4 from "@/assets/projet-rhigine-industrielle-4.jpg";
 
 const Projects = () => {
-  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.2 });
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
 
   const projects = [
     {
@@ -86,10 +86,10 @@ const Projects = () => {
   };
 
   return (
-    <section ref={elementRef} id="realisations" className={`py-20 bg-solar-light scroll-animate ${isVisible ? 'in-view' : ''}`}>
+    <section ref={elementRef} id="realisations" className="py-20 bg-solar-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className={`text-center mb-16 scroll-animate ${isVisible ? 'in-view' : ''}`}>
+        <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
             <span className="text-primary font-medium">Nos Réalisations</span>
           </div>
@@ -115,7 +115,7 @@ const Projects = () => {
             </p>
           </div>
           
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 scroll-animate ${isVisible ? 'in-view' : ''}`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {[
               { image: projetRigini1, title: "Panneaux solaires sur toiture" },
               { image: projetRigini2, title: "Installation complète" },
@@ -125,7 +125,7 @@ const Projects = () => {
             ].map((item, index) => (
               <div 
                 key={index} 
-                className="group relative overflow-hidden rounded-lg shadow-lg hover-lift"
+                className="group relative overflow-hidden rounded-lg shadow-lg hover-lift animate-fadeInUp"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="aspect-[4/3] overflow-hidden">
@@ -158,7 +158,7 @@ const Projects = () => {
             </p>
           </div>
           
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 scroll-animate ${isVisible ? 'in-view' : ''}`}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { image: projetMemling1, title: "Installation sur toiture 1" },
               { image: projetMemling2, title: "Installation sur toiture 2" },
@@ -166,7 +166,7 @@ const Projects = () => {
             ].map((item, index) => (
               <div 
                 key={index} 
-                className="group relative overflow-hidden rounded-lg shadow-lg hover-lift"
+                className="group relative overflow-hidden rounded-lg shadow-lg hover-lift animate-fadeInUp"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="aspect-[4/3] overflow-hidden">
@@ -228,11 +228,11 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 scroll-animate ${isVisible ? 'in-view' : ''}`}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className="group hover-lift bg-background border-border overflow-hidden"
+              className="group hover-lift bg-background border-border overflow-hidden animate-fadeInUp"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Project Image */}

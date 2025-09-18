@@ -4,7 +4,7 @@ import AnimatedNumber from "@/components/common/AnimatedNumber";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Statistics = () => {
-  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.2 });
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
 
   const stats = [
     {
@@ -58,10 +58,10 @@ const Statistics = () => {
   ];
 
   return (
-    <section ref={elementRef} className={`py-20 bg-gradient-to-br from-solar-light to-background scroll-animate ${isVisible ? 'in-view' : ''}`}>
+    <section ref={elementRef} className="py-20 bg-gradient-to-br from-solar-light to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className={`text-center mb-16 scroll-animate ${isVisible ? 'in-view' : ''}`}>
+        <div className="text-center mb-16 animate-fadeInUp">
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
             <span className="text-primary font-medium">Nos Performances</span>
           </div>
@@ -75,11 +75,11 @@ const Statistics = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-animate ${isVisible ? 'in-view' : ''}`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
             <Card 
               key={index} 
-              className="group hover-lift bg-background/80 backdrop-blur-sm border-border"
+              className="group hover-lift bg-background/80 backdrop-blur-sm border-border animate-fadeInUp"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-8 text-center">
@@ -108,7 +108,7 @@ const Statistics = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className={`text-center mt-16 scroll-animate-scale ${isVisible ? 'in-view' : ''}`} style={{ animationDelay: '0.6s' }}>
+        <div className="text-center mt-16 animate-fadeInUp animation-delay-600">
           <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20 max-w-4xl mx-auto">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-foreground mb-4">
