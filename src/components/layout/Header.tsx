@@ -65,8 +65,8 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate("/")} role="button" aria-label="Aller à l'accueil">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full overflow-hidden bg-white">
-              <img src={logoImage} alt="Cristal Alternative Engineering Logo" className="w-full h-full object-cover" />
+            <div className="flex items-center justify-center w-12 h-12 overflow-hidden">
+              <img src={logoImage} alt="Cristal Alternative Engineering Logo" className="w-full h-full object-contain" />
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-bold text-primary">CRISTAL</span>
