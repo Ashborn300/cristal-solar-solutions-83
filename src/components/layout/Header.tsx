@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import LanguageToggle from "@/components/common/LanguageToggle";
-import logoImage from "@/assets/logo-cristal.jpg";
+import logoImage from "@/assets/logo-cristal-new.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useLanguage();
