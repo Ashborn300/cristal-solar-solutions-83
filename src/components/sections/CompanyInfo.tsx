@@ -3,13 +3,13 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { MapPin, Phone, Mail, Building, Calendar } from "lucide-react";
 
 const CompanyInfo = () => {
-  useScrollAnimation();
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
   const { t } = useLanguage();
 
   return (
-    <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
+    <section ref={elementRef} className={`py-16 bg-gradient-to-br from-primary/5 to-secondary/5 scroll-animate ${isVisible ? 'in-view' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center scroll-animate">
+        <div className={`text-center scroll-animate ${isVisible ? 'in-view' : ''}`}>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
               CRISTAL ALTERNATIVE ENGINEERING
@@ -26,7 +26,7 @@ const CompanyInfo = () => {
             
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {/* Contact Information */}
-              <div className="space-y-6 scroll-animate-left">
+              <div className={`space-y-6 scroll-animate-left ${isVisible ? 'in-view' : ''}`}>
                 <div className="flex items-start gap-3">
                   <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <div className="text-left">
@@ -56,7 +56,7 @@ const CompanyInfo = () => {
               </div>
               
               {/* Legal Information */}
-              <div className="space-y-6 scroll-animate-scale">
+              <div className={`space-y-6 scroll-animate-scale ${isVisible ? 'in-view' : ''}`}>
                 <div className="flex items-start gap-3">
                   <Building className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <div className="text-left">
