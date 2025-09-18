@@ -1,12 +1,15 @@
 import deputeEngineeringImage from "@/assets/depute-engineering-team.jpg";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Leadership = () => {
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <section className="py-20 bg-background">
+    <section ref={elementRef} className={`py-20 bg-background scroll-animate ${isVisible ? 'in-view' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image Section */}
-          <div className="relative overflow-hidden rounded-2xl shadow-solar animate-fadeInUp">
+          <div className={`relative overflow-hidden rounded-2xl shadow-solar scroll-animate-left ${isVisible ? 'in-view' : ''}`}>
             <div className="aspect-[4/3] overflow-hidden">
               <img
                 src={deputeEngineeringImage}
@@ -18,7 +21,7 @@ const Leadership = () => {
           </div>
 
           {/* Content Section */}
-          <div className="animate-fadeInUp" style={{ animationDelay: "0.2s" }}>
+          <div className={`scroll-animate ${isVisible ? 'in-view' : ''}`} style={{ animationDelay: "0.2s" }}>
             <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-6">
               <span className="text-primary font-medium">Leadership Technique</span>
             </div>

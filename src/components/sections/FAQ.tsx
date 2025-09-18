@@ -1,9 +1,11 @@
 import { Plus, Minus } from "lucide-react";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const FAQ = () => {
   const [openItems, setOpenItems] = useState<number[]>([0]); // First item open by default
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.2 });
 
   const toggleItem = (index: number) => {
     setOpenItems(prev => 
@@ -57,10 +59,10 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section ref={elementRef} className={`py-20 bg-background scroll-animate ${isVisible ? 'in-view' : ''}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 scroll-animate ${isVisible ? 'in-view' : ''}`}>
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
             <span className="text-primary font-medium">FAQ</span>
           </div>
@@ -75,7 +77,7 @@ const FAQ = () => {
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <div className={`space-y-4 scroll-animate ${isVisible ? 'in-view' : ''}`}>
           {faqs.map((faq, index) => (
             <Card 
               key={index} 
@@ -114,7 +116,7 @@ const FAQ = () => {
         </div>
 
         {/* CTA Section */}
-        <Card className="mt-16 bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
+        <Card className={`mt-16 bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20 scroll-animate-scale ${isVisible ? 'in-view' : ''}`}>
           <CardContent className="p-8 text-center">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Vous avez d'autres questions ?
