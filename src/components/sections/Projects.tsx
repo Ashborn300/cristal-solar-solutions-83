@@ -41,17 +41,18 @@ const Projects = () => {
       beneficiaries: "150 employés"
     },
     {
-      title: "Hôpital Général de Référence",
-      category: "Médical",
-      location: "Commune de Lemba, Kinshasa",
-      power: "100 kW",
-      year: "2023",
-      duration: "2 mois",
-      description: "Système solaire critique pour assurer l'alimentation continue des équipements médicaux. Redondance et fiabilité maximales.",
+      title: "Ministère des Finances – Pointe-Noire et Brazzaville",
+      category: "Études & Supervision",
+      location: "Brazzaville et Pointe-Noire",
+      power: "—",
+      year: "2019–2022",
+      duration: "04/06/2019 au 31/12/2022",
+      client: "BANQUE MONDIALE / PRISP",
+      description: "Réaliser l'étude de faisabilité et dimensionner les systèmes solaires photovoltaïques pour l'alimentation en énergie électrique des sites du Ministère des Finances à Pointe-Noire et Brazzaville. Élaborer le cahier des spécifications techniques du système solaire. Suivre, contrôler et réceptionner le système solaire lors de sa mise en œuvre.",
       image: solarTeamImage,
-      features: ["Système redondant", "UPS médical", "Monitoring 24/7", "Maintenance d'urgence"],
-      savings: "Alimentation continue garantie",
-      beneficiaries: "5000 patients/mois"
+      features: ["Étude de faisabilité", "Dimensionnement PV", "Cahier des spécifications", "Suivi, contrôle et réception"],
+      savings: "Livrables validés & mise en œuvre contrôlée",
+      beneficiaries: "Ministère des Finances (PRISP)"
     },
     {
       title: "Villages Ruraux - Projet PNUD",
