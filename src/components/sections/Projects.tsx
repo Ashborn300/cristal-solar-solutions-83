@@ -78,6 +78,20 @@ const Projects = () => {
       features: ["Injection réseau", "Monitoring temps réel", "Maintenance préventive", "Optimisation consommation"],
       savings: "60% de réduction des coûts",
       beneficiaries: "50 commerces"
+    },
+    {
+      title: "Systèmes Solaires Ministère des Finances",
+      category: "Institutionnel",
+      location: "Pointe-Noire et Brazzaville",
+      power: "150 kW",
+      year: "2019-2022",
+      duration: "3.5 ans",
+      description: "Réaliser l'étude de faisabilité et dimensionner les systèmes solaires photovoltaïques pour l'alimentation en énergie électrique des sites du Ministère des Finances à Pointe-Noire et Brazzaville. Élaboration du cahier des spécifications techniques et suivi de la mise en œuvre.",
+      image: solarFieldImage,
+      features: ["Étude de faisabilité", "Dimensionnement sur mesure", "Spécifications techniques", "Suivi et contrôle"],
+      savings: "Autonomie énergétique complète",
+      beneficiaries: "Personnel du Ministère",
+      client: "BANQUE MONDIALE / PRISP"
     }
   ];
 
