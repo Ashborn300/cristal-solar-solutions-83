@@ -28,19 +28,6 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Complexe Industriel MINABAT",
-      category: "Industriel",
-      location: "Zone Industrielle, Kinshasa",
-      power: "200 kW",
-      year: "2023",
-      duration: "3 mois",
-      description: "Installation d'un système solaire hybride pour alimenter l'usine de fabrication. Solution complète avec stockage et connexion réseau.",
-      image: solarFieldImage,
-      features: ["Panneaux monocristallins", "Stockage 500kWh", "Monitoring intelligent", "Maintenance préventive"],
-      savings: "75% de réduction des coûts énergétiques",
-      beneficiaries: "150 employés"
-    },
-    {
       title: "Ministère des Finances – Pointe-Noire et Brazzaville",
       category: "Études & Supervision",
       location: "Brazzaville et Pointe-Noire",
