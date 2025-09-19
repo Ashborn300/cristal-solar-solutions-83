@@ -7,6 +7,8 @@ import solarFieldImage from "@/assets/solar-panels-field.jpg";
 import solarTeamImage from "@/assets/solar-team-planning.jpg";
 import solarRuralImage from "@/assets/solar-rural-installation.jpg";
 import constructionTeamImage from "@/assets/construction-team.jpg";
+import ministereFinancesImage from "@/assets/ministere-finances-project.jpg";
+import laboratoireMycobacteriesImage from "@/assets/laboratoire-mycobacteries-project.jpg";
 // Import gallery images
 import projetMemling1 from "@/assets/projet-memling-1.jpg";
 import projetMemling2 from "@/assets/projet-memling-2.jpg";
@@ -36,7 +38,7 @@ const Projects = () => {
       duration: "04/06/2019 au 31/12/2022",
       client: "BANQUE MONDIALE / PRISP",
       description: "Réaliser l'étude de faisabilité et dimensionner les systèmes solaires photovoltaïques pour l'alimentation en énergie électrique des sites du Ministère des Finances à Pointe-Noire et Brazzaville. Élaborer le cahier des spécifications techniques du système solaire. Suivre, contrôler et réceptionner le système solaire lors de sa mise en œuvre.",
-      image: solarTeamImage,
+      image: ministereFinancesImage,
       features: ["Étude de faisabilité", "Dimensionnement PV", "Cahier des spécifications", "Suivi, contrôle et réception"],
       savings: "Livrables validés & mise en œuvre contrôlée",
       beneficiaries: "Ministère des Finances (PRISP)"
@@ -50,7 +52,7 @@ const Projects = () => {
       duration: "07/2022",
       client: "USAID/IDDS/ICF",
       description: "Consultant international en charge de : Réaliser l'étude de faisabilité et dimensionner les systèmes solaires photovoltaïques pour le Laboratoire national de Mycobactéries pour le Programme National de Lutte Contre la Tuberculose.",
-      image: solarRuralImage,
+      image: laboratoireMycobacteriesImage,
       features: ["Étude de faisabilité", "Dimensionnement PV", "Laboratoire médical", "Programme tuberculose"],
       savings: "Étude complétée avec succès",
       beneficiaries: "Programme National de Lutte Contre la Tuberculose"
