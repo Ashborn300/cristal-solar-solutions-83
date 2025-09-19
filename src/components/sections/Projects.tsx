@@ -55,17 +55,18 @@ const Projects = () => {
       beneficiaries: "Ministère des Finances (PRISP)"
     },
     {
-      title: "Villages Ruraux - Projet PNUD",
-      category: "Rural",
-      location: "Province du Kwilu",
-      power: "50 kW",
+      title: "Laboratoire National de Mycobactéries",
+      category: "Médical",
+      location: "Kinshasa",
+      power: "—",
       year: "2022",
-      duration: "6 mois",
-      description: "Électrification de 5 villages ruraux via micro-réseaux solaires. Accès à l'électricité pour écoles, centres de santé et ménages.",
+      duration: "07/2022",
+      client: "USAID/IDDS/ICF",
+      description: "Consultant international en charge de : Réaliser l'étude de faisabilité et dimensionner les systèmes solaires photovoltaïques pour le Laboratoire national de Mycobactéries pour le Programme National de Lutte Contre la Tuberculose.",
       image: solarRuralImage,
-      features: ["Micro-réseaux", "Stockage communautaire", "Formation locale", "Gestion participative"],
-      savings: "Première électrification",
-      beneficiaries: "2000 habitants"
+      features: ["Étude de faisabilité", "Dimensionnement PV", "Laboratoire médical", "Programme tuberculose"],
+      savings: "Étude complétée avec succès",
+      beneficiaries: "Programme National de Lutte Contre la Tuberculose"
     },
     {
       title: "Centre Commercial Victoire",
