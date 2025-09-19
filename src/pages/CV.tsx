@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/sections/Footer";
 import WhatsAppFloat from "@/components/common/WhatsAppFloat";
+import Attestations from "@/components/sections/Attestations";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Download, FileText, User, Briefcase, Award, Phone, Mail, MapPin } from "lucide-react";
@@ -191,6 +192,9 @@ const CV = () => {
           </div>
         </div>
       </section>
+
+      {/* Attestations Section */}
+      <Attestations />
 
       <Footer />
       <WhatsAppFloat />

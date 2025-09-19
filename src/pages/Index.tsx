@@ -9,6 +9,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import FAQ from "@/components/sections/FAQ";
 import CompanyInfo from "@/components/sections/CompanyInfo";
 import FacebookSection from "@/components/sections/FacebookSection";
+import Attestations from "@/components/sections/Attestations";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import WhatsAppFloat from "@/components/common/WhatsAppFloat";
@@ -46,6 +47,9 @@ const Index = () => {
       </section>
       <section id="facebook">
         <FacebookSection />
+      </section>
+      <section id="attestations">
+        <Attestations />
       </section>
       <section id="contact">
         <Contact />
