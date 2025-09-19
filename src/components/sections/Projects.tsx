@@ -289,6 +289,10 @@ const Projects = () => {
                       <Calendar className="w-4 h-4 mr-1" />
                       {project.year}
                     </div>
+                    <div className="flex items-center">
+                      <Building className="w-4 h-4 mr-1" />
+                      {(project as any).client ?? (project.title.includes("Ministère") ? "BANQUE MONDIALE / PRISP" : null)}
+                    </div>
                   </div>
                 </div>
 
