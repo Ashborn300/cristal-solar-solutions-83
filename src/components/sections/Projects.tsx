@@ -1,4 +1,4 @@
-import { ExternalLink, MapPin, Zap, Calendar, Users, Building } from "lucide-react";
+import { ExternalLink, MapPin, Zap, Calendar, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import AnimatedNumber from "@/components/common/AnimatedNumber";
@@ -78,20 +78,6 @@ const Projects = () => {
       features: ["Injection réseau", "Monitoring temps réel", "Maintenance préventive", "Optimisation consommation"],
       savings: "60% de réduction des coûts",
       beneficiaries: "50 commerces"
-    },
-    {
-      title: "Systèmes Solaires Ministère des Finances",
-      category: "Institutionnel",
-      location: "Pointe-Noire et Brazzaville",
-      power: "150 kW",
-      year: "2019-2022",
-      duration: "3.5 ans",
-      description: "Réaliser l'étude de faisabilité et dimensionner les systèmes solaires photovoltaïques pour l'alimentation en énergie électrique des sites du Ministère des Finances à Pointe-Noire et Brazzaville. Élaboration du cahier des spécifications techniques et suivi de la mise en œuvre.",
-      image: solarFieldImage,
-      features: ["Étude de faisabilité", "Dimensionnement sur mesure", "Spécifications techniques", "Suivi et contrôle"],
-      savings: "Autonomie énergétique complète",
-      beneficiaries: "Personnel du Ministère",
-      client: "BANQUE MONDIALE / PRISP"
     }
   ];
 
@@ -289,35 +275,13 @@ const Projects = () => {
                       <Calendar className="w-4 h-4 mr-1" />
                       {project.year}
                     </div>
-                    <div className="flex items-center">
-                      <Building className="w-4 h-4 mr-1" />
-                      {(project as any).client ?? (project.title.includes("Ministère") ? "BANQUE MONDIALE / PRISP" : null)}
-                    </div>
                   </div>
                 </div>
 
                 {/* Description */}
-                <div className="text-muted-foreground mb-4 text-sm space-y-2">
-                  <p>{project.description}</p>
-                  {((project as any).client || (project as any).dates || project.title.includes("Ministère")) && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                      {(project as any).client && (
-                        <div className="flex items-center">
-                          <Building className="w-4 h-4 mr-2 text-primary" />
-                          <span className="text-foreground/80">Client: </span>
-                          <span className="ml-1">{(project as any).client}</span>
-                        </div>
-                      )}
-                      {((project as any).dates || project.title.includes("Ministère")) && (
-                        <div className="flex items-center">
-                          <Calendar className="w-4 h-4 mr-2 text-primary" />
-                          <span className="text-foreground/80">Date: </span>
-                          <span className="ml-1">{(project as any).dates || "04/06/2019 au 31/12/2022"}</span>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
+                <p className="text-muted-foreground mb-4 text-sm">
+                  {project.description}
+                </p>
 
                 {/* Features */}
                 <div className="mb-4">
