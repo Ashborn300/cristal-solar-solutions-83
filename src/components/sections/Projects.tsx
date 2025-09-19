@@ -69,17 +69,23 @@ const Projects = () => {
       beneficiaries: "Programme National de Lutte Contre la Tuberculose"
     },
     {
-      title: "Centre Commercial Victoire",
-      category: "Commercial",
-      location: "Boulevard du 30 Juin, Kinshasa",
-      power: "80 kW",
+      title: "Villa Moderne - Ma Campagne",
+      category: "Résidentiel",
+      location: "Kinshasa",
+      power: "5.7 kW",
       year: "2022",
-      duration: "1 mois",
-      description: "Installation solaire pour réduire les coûts opérationnels du centre commercial. Système hybride avec injection réseau.",
+      duration: "10/2022",
+      client: "Madame Solange",
+      description: "Expert en charge de la conception, du suivi et évaluation de l'installation solaire d'une villa moderne à Ma Campagne. Système Solaire de 5700WC, 20 KWH, 10 KVA.",
       image: constructionTeamImage,
-      features: ["Injection réseau", "Monitoring temps réel", "Maintenance préventive", "Optimisation consommation"],
-      savings: "60% de réduction des coûts",
-      beneficiaries: "50 commerces"
+      features: [
+        "Système 5700WC",
+        "Stockage 20 KWH", 
+        "Onduleur 10 KVA",
+        "Suivi et évaluation"
+      ],
+      savings: "Installation complète validée",
+      beneficiaries: "Villa résidentielle"
     },
     {
       title: "Villa Moderne - Lemba RIGINI",
