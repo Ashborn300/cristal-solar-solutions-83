@@ -78,6 +78,25 @@ const Projects = () => {
       features: ["Injection réseau", "Monitoring temps réel", "Maintenance préventive", "Optimisation consommation"],
       savings: "60% de réduction des coûts",
       beneficiaries: "50 commerces"
+    },
+    {
+      title: "Ministère des Finances – Pointe-Noire et Brazzaville",
+      category: "Études & Supervision",
+      location: "Brazzaville et Pointe-Noire",
+      power: "—",
+      year: "2019–2022",
+      duration: "04/06/2019 au 31/12/2022",
+      client: "BANQUE MONDIALE / PRISP",
+      description: "Étude de faisabilité et dimensionnement des systèmes solaires photovoltaïques pour les sites du Ministère des Finances à Pointe-Noire et Brazzaville. Élaboration du cahier des spécifications techniques et supervision/réception de la mise en œuvre.",
+      image: solarTeamImage,
+      features: [
+        "Étude de faisabilité",
+        "Dimensionnement PV",
+        "Cahier des spécifications",
+        "Suivi, contrôle et réception"
+      ],
+      savings: "Livrables validés & mise en œuvre contrôlée",
+      beneficiaries: "Ministère des Finances (PRISP)"
     }
   ];
 
@@ -266,6 +285,11 @@ const Projects = () => {
                   <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
+                  {project.client && (
+                    <div className="text-sm text-muted-foreground mb-1">
+                      Client: <span className="font-medium text-foreground">{project.client}</span>
+                    </div>
+                  )}
                   <div className="flex items-center text-sm text-muted-foreground space-x-4">
                     <div className="flex items-center">
                       <MapPin className="w-4 h-4 mr-1" />
