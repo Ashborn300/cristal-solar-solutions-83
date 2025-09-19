@@ -1,4 +1,4 @@
-import { ExternalLink, MapPin, Zap, Calendar, Users } from "lucide-react";
+import { ExternalLink, MapPin, Zap, Calendar, Users, Building } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import AnimatedNumber from "@/components/common/AnimatedNumber";
@@ -293,9 +293,27 @@ const Projects = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-muted-foreground mb-4 text-sm">
-                  {project.description}
-                </p>
+                <div className="text-muted-foreground mb-4 text-sm space-y-2">
+                  <p>{project.description}</p>
+                  {((project as any).client || (project as any).dates || project.title.includes("Ministère")) && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                      {(project as any).client && (
+                        <div className="flex items-center">
+                          <Building className="w-4 h-4 mr-2 text-primary" />
+                          <span className="text-foreground/80">Client: </span>
+                          <span className="ml-1">{(project as any).client}</span>
+                        </div>
+                      )}
+                      {((project as any).dates || project.title.includes("Ministère")) && (
+                        <div className="flex items-center">
+                          <Calendar className="w-4 h-4 mr-2 text-primary" />
+                          <span className="text-foreground/80">Date: </span>
+                          <span className="ml-1">{(project as any).dates || "04/06/2019 au 31/12/2022"}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
 
                 {/* Features */}
                 <div className="mb-4">
