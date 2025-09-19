@@ -80,23 +80,23 @@ const Projects = () => {
       beneficiaries: "50 commerces"
     },
     {
-      title: "Ministère des Finances – Pointe-Noire et Brazzaville",
-      category: "Études & Supervision",
-      location: "Brazzaville et Pointe-Noire",
-      power: "—",
-      year: "2019–2022",
-      duration: "04/06/2019 au 31/12/2022",
-      client: "BANQUE MONDIALE / PRISP",
-      description: "Étude de faisabilité et dimensionnement des systèmes solaires photovoltaïques pour les sites du Ministère des Finances à Pointe-Noire et Brazzaville. Élaboration du cahier des spécifications techniques et supervision/réception de la mise en œuvre.",
+      title: "Villa Moderne - Lemba RIGINI",
+      category: "Résidentiel",
+      location: "Kinshasa",
+      power: "5.7 kW",
+      year: "2022",
+      duration: "12/2022",
+      client: "Madame Noëlla",
+      description: "Expert en charge de la conception, du suivi et évaluation de l'installation solaire d'une villa moderne à Lemba RIGINI. Système Solaire de 5700WC, 20 KWH, 10 KVA.",
       image: solarTeamImage,
       features: [
-        "Étude de faisabilité",
-        "Dimensionnement PV",
-        "Cahier des spécifications",
-        "Suivi, contrôle et réception"
+        "Système 5700WC",
+        "Stockage 20 KWH",
+        "Onduleur 10 KVA",
+        "Suivi et évaluation"
       ],
-      savings: "Livrables validés & mise en œuvre contrôlée",
-      beneficiaries: "Ministère des Finances (PRISP)"
+      savings: "Installation complète validée",
+      beneficiaries: "Villa résidentielle"
     }
   ];
 
