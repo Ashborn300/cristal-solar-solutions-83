@@ -19,6 +19,13 @@ import electricalEquipment2 from "@/assets/electrical-equipment-2.jpg";
 import electricalEquipment3 from "@/assets/electrical-equipment-3.jpg";
 import solarSchoolInstallation from "@/assets/solar-school-installation.jpg";
 import batteryStorageRoom from "@/assets/battery-storage-room.jpg";
+import electricalEquipment4 from "@/assets/electrical-equipment-4.jpg";
+import batteryStorageRoom2 from "@/assets/battery-storage-room-2.jpg";
+import batteryStorageRoom3 from "@/assets/battery-storage-room-3.jpg";
+import batteryStorageRoom4 from "@/assets/battery-storage-room-4.jpg";
+import solarSchoolInstallation2 from "@/assets/solar-school-installation-2.jpg";
+import solarSchoolInstallation3 from "@/assets/solar-school-installation-3.jpg";
+import solarPanelsField2 from "@/assets/solar-panels-field-2.jpg";
 
 const Gallery = () => {
   const { elementRef, isVisible } = useScrollAnimation();
@@ -98,6 +105,41 @@ const Gallery = () => {
       src: batteryStorageRoom,
       alt: "Salle de stockage batteries",
       category: "equipment"
+    },
+    {
+      src: electricalEquipment4,
+      alt: "Onduleurs et équipements électriques",
+      category: "equipment"
+    },
+    {
+      src: batteryStorageRoom2,
+      alt: "Salle technique batteries - Vue 2",
+      category: "equipment"
+    },
+    {
+      src: batteryStorageRoom3,
+      alt: "Système de stockage batteries ouvert",
+      category: "equipment"
+    },
+    {
+      src: batteryStorageRoom4,
+      alt: "Salle de batteries complète",
+      category: "equipment"
+    },
+    {
+      src: solarSchoolInstallation2,
+      alt: "Installation solaire sur école - Vue 2",
+      category: "installations"
+    },
+    {
+      src: solarSchoolInstallation3,
+      alt: "Installation solaire sur école - Vue 3",
+      category: "installations"
+    },
+    {
+      src: solarPanelsField2,
+      alt: "Champ de panneaux solaires - Vue panoramique",
+      category: "installations"
     }
   ];
 

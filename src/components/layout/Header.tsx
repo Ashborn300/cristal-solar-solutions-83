@@ -22,7 +22,7 @@ const Header = () => {
     href: "#about"
   }, {
     name: t('nav.projects'),
-    href: "#realisations"
+    href: "/gallery"
   }, {
     name: t('nav.testimonials'),
     href: "#temoignages"
