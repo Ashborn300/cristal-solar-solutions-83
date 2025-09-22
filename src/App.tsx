@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import CV from "./pages/CV";
+import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
 import { uploadInitialCV } from "./utils/cvUploader";
 
@@ -28,6 +29,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/cv" element={<CV />} />
+            <Route path="/gallery" element={<Gallery />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
