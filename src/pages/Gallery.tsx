@@ -9,16 +9,16 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // Import images
-import solarConstruction1 from "@/assets/gallery/solar-construction-1.jpg";
-import solarAerialView from "@/assets/gallery/solar-aerial-view.jpg";
-import solarConstruction2 from "@/assets/gallery/solar-construction-2.jpg";
-import electricalEquipment1 from "@/assets/gallery/electrical-equipment-1.jpg";
-import solarInstallationRoof from "@/assets/gallery/solar-installation-roof.jpg";
-import batterySystem from "@/assets/gallery/battery-system.jpg";
-import electricalEquipment2 from "@/assets/gallery/electrical-equipment-2.jpg";
-import electricalEquipment3 from "@/assets/gallery/electrical-equipment-3.jpg";
-import solarSchoolInstallation from "@/assets/gallery/solar-school-installation.jpg";
-import batteryStorageRoom from "@/assets/gallery/battery-storage-room.jpg";
+import solarConstruction1 from "@/assets/solar-construction-1.jpg";
+import solarAerialView from "@/assets/solar-aerial-view.jpg";
+import solarConstruction2 from "@/assets/solar-construction-2.jpg";
+import electricalEquipment1 from "@/assets/electrical-equipment-1.jpg";
+import solarInstallationRoof from "@/assets/solar-installation-roof.jpg";
+import batterySystem from "@/assets/battery-system.jpg";
+import electricalEquipment2 from "@/assets/electrical-equipment-2.jpg";
+import electricalEquipment3 from "@/assets/electrical-equipment-3.jpg";
+import solarSchoolInstallation from "@/assets/solar-school-installation.jpg";
+import batteryStorageRoom from "@/assets/battery-storage-room.jpg";
 
 const Gallery = () => {
   const { elementRef, isVisible } = useScrollAnimation();
