@@ -56,11 +56,50 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-solar-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Services Overview */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
+              <span className="text-primary font-medium">{t('services.title')}</span>
+            </div>
+            <h2 className="text-3xl font-bold text-foreground mb-6">
+              {t('services.overview.title')}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
+              {t('services.overview.description')}
+            </p>
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              t('services.overview.service1'),
+              t('services.overview.service2'),
+              t('services.overview.service3'),
+              t('services.overview.service4'),
+              t('services.overview.service5'),
+              t('services.overview.service6'),
+              t('services.overview.service7'),
+              t('services.overview.service8'),
+              t('services.overview.service9'),
+              t('services.overview.service10'),
+              t('services.overview.service11'),
+              t('services.overview.service12')
+            ].map((service, index) => (
+              <Card key={index} className="p-4 hover-lift bg-background border-border">
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-foreground font-medium leading-relaxed">
+                    {service}
+                  </p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
-            <span className="text-primary font-medium">{t('services.title')}</span>
-          </div>
           <h2 className="text-4xl font-bold text-foreground mb-4">
             {t('services.heading')}
             <span className="block gradient-text">{t('services.subheading')}</span>
