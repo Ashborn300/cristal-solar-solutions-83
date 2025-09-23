@@ -73,25 +73,30 @@ const Services = () => {
           {/* Services Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              t('services.overview.service1'),
-              t('services.overview.service2'),
-              t('services.overview.service3'),
-              t('services.overview.service4'),
-              t('services.overview.service5'),
-              t('services.overview.service6'),
-              t('services.overview.service7'),
-              t('services.overview.service8'),
-              t('services.overview.service9'),
-              t('services.overview.service10'),
-              t('services.overview.service11'),
-              t('services.overview.service12')
+              { title: t('services.overview.service1'), desc: t('services.overview.service1.desc') },
+              { title: t('services.overview.service2'), desc: t('services.overview.service2.desc') },
+              { title: t('services.overview.service3'), desc: t('services.overview.service3.desc') },
+              { title: t('services.overview.service4'), desc: t('services.overview.service4.desc') },
+              { title: t('services.overview.service5'), desc: t('services.overview.service5.desc') },
+              { title: t('services.overview.service6'), desc: t('services.overview.service6.desc') },
+              { title: t('services.overview.service7'), desc: t('services.overview.service7.desc') },
+              { title: t('services.overview.service8'), desc: t('services.overview.service8.desc') },
+              { title: t('services.overview.service9'), desc: t('services.overview.service9.desc') },
+              { title: t('services.overview.service10'), desc: t('services.overview.service10.desc') },
+              { title: t('services.overview.service11'), desc: t('services.overview.service11.desc') },
+              { title: t('services.overview.service12'), desc: t('services.overview.service12.desc') }
             ].map((service, index) => (
-              <Card key={index} className="p-4 hover-lift bg-background border-border">
+              <Card key={index} className="p-5 hover-lift bg-background border-border group">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm text-foreground font-medium leading-relaxed">
-                    {service}
-                  </p>
+                  <div className="flex-1">
+                    <h4 className="text-sm text-foreground font-semibold leading-relaxed mb-2 group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {service.desc}
+                    </p>
+                  </div>
                 </div>
               </Card>
             ))}
