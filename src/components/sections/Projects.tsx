@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import AnimatedNumber from "@/components/common/AnimatedNumber";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import solarFieldImage from "@/assets/solar-panels-field.jpg";
 import solarTeamImage from "@/assets/solar-team-planning.jpg";
 import solarRuralImage from "@/assets/solar-rural-installation.jpg";
@@ -27,6 +28,7 @@ import projetRhigineIndustrielle4 from "@/assets/projet-rhigine-industrielle-4.j
 
 const Projects = () => {
   const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
+  const { t } = useLanguage();
 
   const projects = [
     {
@@ -107,15 +109,14 @@ const Projects = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
-            <span className="text-primary font-medium">Nos Réalisations</span>
+            <span className="text-primary font-medium">{t('projects.badge')}</span>
           </div>
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            Projets Solaires
-            <span className="block gradient-text">Réalisés avec Succès</span>
+            {t('projects.title')}
+            <span className="block gradient-text">{t('projects.subtitle')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Découvrez quelques-uns de nos projets phares qui illustrent notre expertise 
-            dans différents secteurs d'activité.
+            {t('projects.description')}
           </p>
         </div>
 

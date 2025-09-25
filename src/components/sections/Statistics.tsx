@@ -2,24 +2,26 @@ import { TrendingUp, Zap, Users, Clock, Award, Globe } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import AnimatedNumber from "@/components/common/AnimatedNumber";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Statistics = () => {
   const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
+  const { t } = useLanguage();
 
   const stats = [
     {
       icon: Award,
       number: 14,
       suffix: "+",
-      label: "Années d'Expérience",
-      description: "Au service de l'énergie durable",
+      label: t('stats.years'),
+      description: t('stats.description'),
       color: "text-primary"
     },
     {
       icon: Zap,
       number: 500,
       suffix: "+",
-      label: "Projets Réalisés",
+      label: t('stats.projects'),
       description: "Installations solaires complètes",
       color: "text-accent"
     },
@@ -27,7 +29,7 @@ const Statistics = () => {
       icon: Users,
       number: 98,
       suffix: "%",
-      label: "Clients Satisfaits",
+      label: t('stats.clients'),
       description: "Taux de satisfaction client",
       color: "text-success"
     },
@@ -35,7 +37,7 @@ const Statistics = () => {
       icon: TrendingUp,
       number: 150,
       suffix: "MW",
-      label: "Puissance Installée",
+      label: t('stats.capacity'),
       description: "Capacité totale en mégawatts",
       color: "text-primary"
     },
@@ -63,14 +65,14 @@ const Statistics = () => {
         {/* Header */}
         <div className="text-center mb-16 animate-fadeInUp">
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
-            <span className="text-primary font-medium">Nos Performances</span>
+            <span className="text-primary font-medium">{t('stats.badge')}</span>
           </div>
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            Des Chiffres qui
-            <span className="block gradient-text">Parlent d'Eux-Mêmes</span>
+            {t('stats.title')}
+            <span className="block gradient-text">{t('stats.subtitle')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Découvrez l'impact de notre engagement pour l'énergie solaire en République Démocratique du Congo.
+            {t('stats.description')}
           </p>
         </div>
 

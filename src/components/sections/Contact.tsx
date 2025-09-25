@@ -5,7 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 const Contact = () => {
+  const { t } = useLanguage();
   const {
     toast
   } = useToast();

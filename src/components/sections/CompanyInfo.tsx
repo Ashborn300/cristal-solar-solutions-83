@@ -17,11 +17,11 @@ const CompanyInfo = () => {
             
             <div className="flex items-center justify-center gap-2 mb-6 text-xl font-semibold text-muted-foreground">
               <Calendar className="w-5 h-5" />
-              <span>Since 2010</span>
+              <span>{t('company.since')}</span>
             </div>
             
             <p className="text-xl md:text-2xl font-medium mb-12 text-primary">
-              Electricity and life anywhere
+              {t('company.tagline')}
             </p>
             
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -30,7 +30,7 @@ const CompanyInfo = () => {
                 <div className="flex items-start gap-3">
                   <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <div className="text-left">
-                    <p className="font-medium mb-1">Adresse</p>
+                    <p className="font-medium mb-1">{t('company.address')}</p>
                     <p className="text-muted-foreground">
                       32, Avenue Kabale, Q/Tshimanga,<br />
                       C/ Barumbu, Kinshasa-RDC
@@ -41,7 +41,7 @@ const CompanyInfo = () => {
                 <div className="flex items-center gap-3">
                   <Phone className="w-6 h-6 text-primary" />
                   <div className="text-left">
-                    <p className="font-medium mb-1">Téléphone</p>
+                    <p className="font-medium mb-1">{t('company.phone')}</p>
                     <p className="text-muted-foreground">+243 81 925 77 78</p>
                   </div>
                 </div>
@@ -49,7 +49,7 @@ const CompanyInfo = () => {
                 <div className="flex items-center gap-3">
                   <Mail className="w-6 h-6 text-primary" />
                   <div className="text-left">
-                    <p className="font-medium mb-1">E-mail</p>
+                    <p className="font-medium mb-1">{t('company.email')}</p>
                     <p className="text-muted-foreground">info@cristalentreprises.com</p>
                   </div>
                 </div>
@@ -60,7 +60,7 @@ const CompanyInfo = () => {
                 <div className="flex items-start gap-3">
                   <Building className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <div className="text-left">
-                    <p className="font-medium mb-1">Informations légales</p>
+                    <p className="font-medium mb-1">{t('company.legal')}</p>
                     <div className="text-muted-foreground space-y-1">
                       <p>RCCM N° CD/KIN/RCCM/15-A-25689</p>
                       <p>Id. Nat 01-93-N96656F</p>

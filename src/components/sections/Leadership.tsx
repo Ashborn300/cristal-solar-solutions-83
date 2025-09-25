@@ -1,6 +1,8 @@
 import deputeEngineeringImage from "@/assets/depute-engineering-team.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Leadership = () => {
+  const { t } = useLanguage();
   return (
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,25 +22,16 @@ const Leadership = () => {
           {/* Content Section */}
           <div className="animate-fadeInUp" style={{ animationDelay: "0.2s" }}>
             <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-6">
-              <span className="text-primary font-medium">Leadership Technique</span>
+              <span className="text-primary font-medium">{t('leadership.badge')}</span>
             </div>
             
             <h2 className="text-4xl font-bold text-foreground mb-6">
-              <span className="gradient-text">Député Wilondja leads the engineering and installation team at the village.</span>
+              {t('leadership.title')}
+              <span className="block gradient-text">{t('leadership.subtitle')}</span>
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6">
-              Notre expertise technique s'appuie sur un leadership de terrain exceptionnel. 
-              Député Wilondja, responsable technique et chef d'équipe, supervise personnellement chaque 
-              installation dans nos projets ruraux, garantissant la qualité et la durabilité 
-              de nos solutions énergétiques.
-            </p>
-            
-            <p className="text-muted-foreground mb-8">
-              Avec plus de 10 ans d'expérience dans l'électrification rurale, notre équipe 
-              technique maîtrise parfaitement les défis spécifiques aux installations en 
-              milieu rural congolais. Chaque projet bénéficie d'un accompagnement technique 
-              sur mesure, de la conception à la maintenance.
+              {t('leadership.description')}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

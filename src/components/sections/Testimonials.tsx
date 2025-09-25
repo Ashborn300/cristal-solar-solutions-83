@@ -2,9 +2,11 @@ import { Star, Quote, Building, Home, Factory } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import AnimatedNumber from "@/components/common/AnimatedNumber";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Testimonials = () => {
   const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
+  const { t } = useLanguage();
 
   const testimonials = [
     {
@@ -118,14 +120,14 @@ const Testimonials = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
-            <span className="text-primary font-medium">Témoignages Clients</span>
+            <span className="text-primary font-medium">{t('testimonials.badge')}</span>
           </div>
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            Ce que Disent
-            <span className="block gradient-text">Nos Clients</span>
+            {t('testimonials.title')}
+            <span className="block gradient-text">{t('testimonials.subtitle')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Découvrez pourquoi plus de 500 clients nous font confiance pour leurs projets d'énergie solaire.
+            {t('testimonials.description')}
           </p>
         </div>
 
