@@ -132,11 +132,11 @@ const FAQ = () => {
                 WhatsApp: +243 81 925 77 78
               </button>
               <button
-                onClick={() => window.open("mailto:ca.engineer.sales@gmail.com", "_blank")}
+                onClick={() => window.open("mailto:info@cristalentreprises.com", "_blank")}
                 className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium flex items-center justify-center"
               >
                 <span className="mr-2">✉️</span>
-                ca.engineer.sales@gmail.com
+                info@cristalentreprises.com
               </button>
             </div>
             <div className="mt-6 text-sm text-muted-foreground">

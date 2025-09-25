@@ -73,8 +73,8 @@ Envoyé depuis le site web cristal-engineering.com
   }, {
     icon: Mail,
     title: "Email",
-    content: "ca.engineer.sales@gmail.com",
-    action: () => window.open("mailto:ca.engineer.sales@gmail.com", "_blank")
+    content: "info@cristalentreprises.com",
+    action: () => window.open("mailto:info@cristalentreprises.com", "_blank")
   }, {
     icon: Facebook,
     title: "Facebook",

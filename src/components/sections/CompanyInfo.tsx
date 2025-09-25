@@ -50,7 +50,7 @@ const CompanyInfo = () => {
                   <Mail className="w-6 h-6 text-primary" />
                   <div className="text-left">
                     <p className="font-medium mb-1">E-mail</p>
-                    <p className="text-muted-foreground">ca.engineer.sales@gmail.com</p>
+                    <p className="text-muted-foreground">info@cristalentreprises.com</p>
                   </div>
                 </div>
               </div>

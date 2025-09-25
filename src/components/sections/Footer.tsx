@@ -168,11 +168,11 @@ const Footer = () => {
                 </button>
                 
                 <button
-                  onClick={() => window.open("mailto:ca.engineer.sales@gmail.com", "_blank")}
+                  onClick={() => window.open("mailto:info@cristalentreprises.com", "_blank")}
                   className="flex items-center space-x-3 text-sm text-muted-foreground hover:text-primary transition-colors w-full text-left"
                 >
                   <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span>ca.engineer.sales@gmail.com</span>
+                  <span>info@cristalentreprises.com</span>
                 </button>
                 
                 <button
