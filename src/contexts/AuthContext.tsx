@@ -45,7 +45,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
               .eq('id', session.user.id)
               .single();
             
-            setUserRole(profile?.role || null);
+            // Auto-promote admin user if it's the default admin email
+            if (session.user.email === 'admin@cristal.com' && (!profile || profile.role !== 'admin')) {
+              await supabase.rpc('promote_user_to_admin', { user_email: 'admin@cristal.com' });
+              setUserRole('admin');
+            } else {
+              setUserRole(profile?.role || null);
+            }
           }, 0);
         } else {
           setUserRole(null);
