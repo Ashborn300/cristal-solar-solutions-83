@@ -235,6 +235,10 @@ export type Database = {
         Args: { user_email: string }
         Returns: undefined
       }
+      setup_admin_user: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
     }
     Enums: {
       user_role: "admin" | "editor"
