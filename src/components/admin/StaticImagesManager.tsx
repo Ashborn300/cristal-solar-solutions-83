@@ -102,7 +102,7 @@ export const StaticImagesManager = () => {
         throw error;
       }
 
-      const existingImages = data || [];
+      const existingImages = (data as StaticImage[]) || [];
       
       // Merge with static image definitions
       const mergedImages = staticImages.map(staticImg => {

@@ -93,6 +93,12 @@ export function AdminSidebar() {
       title: t.gallery, 
       icon: Image, 
       description: 'Organiser les images de la galerie'
+    },
+    { 
+      id: 'images', 
+      title: 'Images statiques', 
+      icon: Image, 
+      description: 'Modifier les images du site'
     }
   ];
 

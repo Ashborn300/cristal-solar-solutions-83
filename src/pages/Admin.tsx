@@ -7,6 +7,7 @@ import { ContentManager } from '@/components/admin/ContentManager';
 import { ServicesManager } from '@/components/admin/ServicesManager';
 import { RealisationsManager } from '@/components/admin/RealisationsManager';
 import { GalleryManager } from '@/components/admin/GalleryManager';
+import { StaticImagesManager } from '@/components/admin/StaticImagesManager';
 import { CMSDashboard } from '@/components/admin/CMSDashboard';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -94,6 +95,8 @@ const Admin = () => {
         return <RealisationsManager />;
       case 'gallery':
         return <GalleryManager />;
+      case 'images':
+        return <StaticImagesManager />;
       default:
         return <CMSDashboard />;
     }
