@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -44,6 +45,7 @@ export function PageEditor({ pageName, onBack }: PageEditorProps) {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [hasChanges, setHasChanges] = useState(false);
+  const navigate = useNavigate();
 
   const getPageDisplayName = (pageName: string) => {
     const pageNames: Record<string, string> = {
@@ -207,7 +209,7 @@ export function PageEditor({ pageName, onBack }: PageEditorProps) {
           )}
           
           <Button
-            onClick={() => window.open('/', '_blank')}
+            onClick={() => navigate('/')}
             variant="outline"
             size="sm"
           >
