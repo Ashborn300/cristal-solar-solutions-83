@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { Menu, X, Zap, Phone } from "lucide-react";
+import { Menu, X, Zap, Phone, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import LanguageToggle from "@/components/common/LanguageToggle";
 import logoImage from "@/assets/cristal-logo.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useLanguage();
+  const { isEditor } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -94,6 +96,16 @@ const Header = () => {
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <LanguageToggle />
+            {isEditor && (
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => navigate('/admin')}
+              >
+                <Settings className="h-4 w-4 mr-2" />
+                Admin
+              </Button>
+            )}
             <Button onClick={() => scrollToSection("#contact")} className="gradient-primary text-white shadow-solar">
               <Zap className="w-4 h-4 mr-2" />
               {t('nav.freeQuote')}
@@ -108,6 +120,20 @@ const Header = () => {
                   {item.name}
                 </button>)}
               <div className="pt-2 space-y-2">
+                {isEditor && (
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => {
+                      navigate('/admin');
+                      setIsMenuOpen(false);
+                    }}
+                    className="w-full"
+                  >
+                    <Settings className="h-4 w-4 mr-2" />
+                    Admin
+                  </Button>
+                )}
                 <Button onClick={handleWhatsAppClick} variant="outline" size="sm" className="w-full bg-green-500 text-white border-green-500 hover:bg-green-600">
                   <Phone className="w-4 h-4 mr-2" />
                   {t('nav.whatsapp')}
