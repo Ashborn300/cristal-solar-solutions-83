@@ -84,17 +84,15 @@ const Header = () => {
                 </span>
               </div>
             </div>
-            {isEditor && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => navigate('/admin')}
-                aria-label="Administration"
-                className="text-muted-foreground hover:text-primary"
-              >
-                <Settings className="h-5 w-5" />
-              </Button>
-            )}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => navigate('/admin')}
+              aria-label="Administration"
+              className="text-muted-foreground hover:text-primary"
+            >
+              <Settings className="h-5 w-5" />
+            </Button>
           </div>
 
           {/* Mobile Language Toggle + Menu Button */}
