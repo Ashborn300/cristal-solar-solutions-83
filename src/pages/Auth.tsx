@@ -148,8 +148,8 @@ const Auth = () => {
               
               <div>
                 <Input
-                  type="email"
-                  placeholder={t.email}
+                  type="text"
+                  placeholder={isLogin ? "Admin ou Email" : t.email}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required

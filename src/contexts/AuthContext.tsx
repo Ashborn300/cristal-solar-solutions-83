@@ -86,6 +86,23 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const signIn = async (email: string, password: string) => {
+    // Vérification pour l'admin spécial
+    if (email === 'Admin' && password === 'Cristal1234') {
+      // Créer une session factice pour l'admin
+      const adminUser = {
+        id: 'admin-special-id',
+        email: 'admin@cristal.com',
+        role: 'admin'
+      } as any;
+      
+      setUser(adminUser);
+      setSession({ user: adminUser } as any);
+      setUserRole('admin');
+      
+      return { error: null };
+    }
+    
+    // Authentification normale avec Supabase
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -110,6 +127,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const signOut = async () => {
+    // Si c'est l'admin spécial, on reset les états localement
+    if (user?.id === 'admin-special-id') {
+      setUser(null);
+      setSession(null);
+      setUserRole(null);
+      return;
+    }
+    
+    // Sinon déconnexion Supabase normale
     await supabase.auth.signOut();
   };
 
