@@ -107,33 +107,6 @@ const Auth = () => {
     }
   };
 
-  const createAdminUser = async () => {
-    setLoading(true);
-    setError('');
-    setSuccess('');
-
-    try {
-      const response = await fetch('/supabase/functions/v1/create-admin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setSuccess('Utilisateur admin créé avec succès! Email: admin@cristal.com, Mot de passe: Cristal1234');
-      } else {
-        setError(data.error || 'Erreur lors de la création de l\'utilisateur admin');
-      }
-    } catch (err) {
-      setError('Erreur lors de la création de l\'utilisateur admin');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-md space-y-4">
@@ -220,18 +193,6 @@ const Auth = () => {
               >
                 {isLogin ? t.switchToSignup : t.switchToLogin}
               </Button>
-              
-              <div className="pt-4 border-t">
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="w-full"
-                  onClick={createAdminUser}
-                  disabled={loading}
-                >
-                  Créer l'utilisateur Admin
-                </Button>
-              </div>
             </form>
           </CardContent>
         </Card>
