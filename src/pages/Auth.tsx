@@ -79,21 +79,25 @@ const Auth = () => {
       if (isLogin) {
         const { error } = await signIn(email, password);
         if (error) {
-          if (error.message.includes('Invalid login credentials')) {
+          console.error('Sign in error:', error);
+          if (error.message.includes('Invalid login credentials') || error.message.includes('Invalid email or password')) {
             setError(t.errorInvalidCredentials);
+          } else if (error.message.includes('Email not confirmed')) {
+            setError('Veuillez vérifier votre email pour confirmer votre compte.');
           } else {
-            setError(t.errorGeneric);
+            setError(error.message || t.errorGeneric);
           }
         }
       } else {
         const { error } = await signUp(email, password, fullName);
         if (error) {
-          if (error.message.includes('already registered')) {
+          console.error('Sign up error:', error);
+          if (error.message.includes('already registered') || error.message.includes('already been registered')) {
             setError(t.errorEmailExists);
           } else if (error.message.includes('Password should be at least')) {
             setError(t.errorWeakPassword);
           } else {
-            setError(t.errorGeneric);
+            setError(error.message || t.errorGeneric);
           }
         } else {
           setSuccess(t.successSignup);
@@ -101,7 +105,8 @@ const Auth = () => {
         }
       }
     } catch (err) {
-      setError(t.errorGeneric);
+      console.error('Auth error:', err);
+      setError(err instanceof Error ? err.message : t.errorGeneric);
     } finally {
       setLoading(false);
     }
