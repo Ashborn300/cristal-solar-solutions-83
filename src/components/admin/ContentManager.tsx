@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ContentEditor } from './ContentEditor';
-import { FileText } from 'lucide-react';
+import { ImageUpload } from './ImageUpload';
 
 interface PageContent {
   id: string;
@@ -109,26 +112,57 @@ export const ContentManager = () => {
     handleSave(content, 'image_url', imageUrl);
   };
 
+  const addNewContent = () => {
+    const newSection = prompt('Nom de la nouvelle section:');
+    if (!newSection) return;
+
+    const newContent: Omit<PageContent, 'id'> = {
+      page_name: 'home',
+      section: newSection,
+      title: `Nouveau titre - ${newSection}`,
+      body_text: `Nouveau contenu pour la section ${newSection}`,
+      image_url: null,
+      order_index: Math.max(...contents.map(c => c.order_index), 0) + 1,
+      is_active: true
+    };
+
+    // Créer en base de données
+    const createContent = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('pages_content')
+          .insert([newContent])
+          .select()
+          .single();
+
+        if (error) throw error;
+        setContents(prev => [...prev, data]);
+        setSuccess('Nouvelle section créée avec succès');
+        setTimeout(() => setSuccess(''), 3000);
+      } catch (err) {
+        setError('Erreur lors de la création de la section');
+      }
+    };
+
+    createContent();
+  };
+
   if (loading) {
     return <div className="text-center py-8">Chargement...</div>;
   }
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex justify-between items-start">
         <div>
-          <h2 className="text-2xl font-bold text-foreground">{t.title}</h2>
+          <h2 className="text-xl font-semibold">{t.title}</h2>
           <p className="text-muted-foreground">{t.description}</p>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="text-sm text-muted-foreground">
-            {contents.length} sections trouvées
-          </div>
-        </div>
+        <Button onClick={addNewContent} className="bg-primary text-white hover:bg-primary/90">
+          Ajouter une section
+        </Button>
       </div>
 
-      {/* Alerts */}
       {error && (
         <Alert variant="destructive">
           <AlertDescription>{error}</AlertDescription>
@@ -136,36 +170,72 @@ export const ContentManager = () => {
       )}
 
       {success && (
-        <Alert className="border-green-200 bg-green-50">
-          <AlertDescription className="text-green-700">{success}</AlertDescription>
+        <Alert>
+          <AlertDescription>{success}</AlertDescription>
         </Alert>
       )}
 
-      {/* Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-        {contents.map((content) => (
-          <ContentEditor
-            key={content.id}
-            content={content}
-            onSave={handleSave}
-            onImageUpload={handleImageUpload}
-            saving={saving === content.id}
-          />
-        ))}
-      </div>
-
-      {/* Empty State */}
-      {contents.length === 0 && !loading && (
-        <div className="text-center py-12">
-          <div className="mx-auto w-24 h-24 bg-muted rounded-full flex items-center justify-center mb-4">
-            <FileText className="w-8 h-8 text-muted-foreground" />
+      <div className="grid gap-6">
+        {contents.length === 0 ? (
+          <div className="text-center py-8 text-muted-foreground">
+            Aucun contenu trouvé. Cliquez sur "Ajouter une section" pour commencer.
           </div>
-          <h3 className="text-lg font-semibold text-foreground mb-2">Aucun contenu trouvé</h3>
-          <p className="text-muted-foreground max-w-sm mx-auto">
-            Le contenu sera automatiquement créé lors de la première visite des pages du site.
-          </p>
-        </div>
-      )}
+        ) : (
+          contents.map((content) => (
+            <Card key={content.id}>
+              <CardHeader>
+                <CardTitle className="text-lg flex justify-between items-center">
+                  <span>{t.page}: {content.page_name} - {t.section}: {content.section}</span>
+                  <span className="text-sm text-muted-foreground">Ordre: {content.order_index}</span>
+                </CardTitle>
+              </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <label className="text-sm font-medium">{t.title_field}</label>
+                <Input
+                  value={content.title || ''}
+                  onChange={(e) => {
+                    const updatedContents = contents.map(c =>
+                      c.id === content.id ? { ...c, title: e.target.value } : c
+                    );
+                    setContents(updatedContents);
+                  }}
+                  onBlur={(e) => handleSave(content, 'title', e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium">{t.content_field}</label>
+                <Textarea
+                  value={content.body_text || ''}
+                  onChange={(e) => {
+                    const updatedContents = contents.map(c =>
+                      c.id === content.id ? { ...c, body_text: e.target.value } : c
+                    );
+                    setContents(updatedContents);
+                  }}
+                  onBlur={(e) => handleSave(content, 'body_text', e.target.value)}
+                  rows={4}
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium">{t.image_field}</label>
+                <ImageUpload
+                  currentImageUrl={content.image_url}
+                  onUpload={(imageUrl) => handleImageUpload(content, imageUrl)}
+                  bucket="site-images"
+                />
+              </div>
+
+              {saving === content.id && (
+                <div className="text-sm text-muted-foreground">{t.saving}</div>
+              )}
+            </CardContent>
+          </Card>
+          ))
+        )}
+      </div>
     </div>
   );
 };
