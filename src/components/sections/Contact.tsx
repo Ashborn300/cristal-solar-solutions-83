@@ -9,7 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { usePageContent } from "@/hooks/usePageContent";
 const Contact = () => {
   const { t } = useLanguage();
-  const { getContentTitle, getContentText } = usePageContent('home');
+  const { getTitle, getBodyText } = usePageContent('home');
   const {
     toast
   } = useToast();
@@ -103,11 +103,11 @@ Envoyé depuis le site web cristal-engineering.com
             <span className="text-primary font-medium">Contact</span>
           </div>
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            {getContentTitle('contact', 'Parlons de Votre')}
+            {getTitle('contact', 'Parlons de Votre')}
             <span className="block gradient-text">Projet Solaire</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {getContentText('contact', 'Notre équipe d\'experts est prête à vous accompagner. Contactez-nous pour une consultation gratuite et un devis personnalisé adapté à vos besoins énergétiques.')}
+            {getBodyText('contact', 'Notre équipe d\'experts est prête à vous accompagner. Contactez-nous pour une consultation gratuite et un devis personnalisé adapté à vos besoins énergétiques.')}
           </p>
         </div>
 

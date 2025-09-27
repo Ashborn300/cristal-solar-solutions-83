@@ -30,7 +30,7 @@ import projetRhigineIndustrielle4 from "@/assets/projet-rhigine-industrielle-4.j
 const Projects = () => {
   const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
   const { t } = useLanguage();
-  const { getContentTitle, getContentText } = usePageContent('home');
+  const { getTitle, getBodyText } = usePageContent('home');
 
   const projects = [
     {
@@ -114,11 +114,11 @@ const Projects = () => {
             <span className="text-primary font-medium">{t('projects.badge')}</span>
           </div>
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            {getContentTitle('projects', t('projects.title'))}
+            {getTitle('projects', t('projects.title'))}
             <span className="block gradient-text">{t('projects.subtitle')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {getContentText('projects', t('projects.description'))}
+            {getBodyText('projects', t('projects.description'))}
           </p>
         </div>
 

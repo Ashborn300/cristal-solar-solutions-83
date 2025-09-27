@@ -10,7 +10,7 @@ const About = () => {
   const { isVisible: statsVisible, elementRef: statsRef } = useScrollAnimation({ threshold: 0.4 });
   const { isVisible: contentVisible, elementRef: contentRef } = useScrollAnimation({ threshold: 0.2 });
   const { t } = useLanguage();
-  const { getContentTitle, getContentText } = usePageContent('home');
+  const { getTitle, getBodyText, getImageUrl } = usePageContent('home');
 
   const stats = [
     { number: "14+", label: t('about.stats.years'), icon: Award },
@@ -46,11 +46,11 @@ const About = () => {
             <span className="text-primary font-medium">{t('about.badge')}</span>
           </div>
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            {getContentTitle('about', t('about.title'))}
+            {getTitle('about', t('about.title'))}
             <span className="block gradient-text">{t('about.subtitle')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {getContentText('about', t('about.description'))}
+            {getBodyText('about', t('about.description'))}
           </p>
         </div>
 
@@ -60,7 +60,7 @@ const About = () => {
           <div className="relative animate-slideInLeft">
             <div className="relative overflow-hidden rounded-2xl shadow-solar">
               <img
-                src={solarWorkerImage}
+                src={getImageUrl('about') || solarWorkerImage}
                 alt="Équipe CRISTAL ALTERNATIVE ENGINEERING"
                 className="w-full h-96 object-cover"
               />
@@ -85,10 +85,10 @@ const About = () => {
           <div className="space-y-8 animate-fadeInUp">
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-4">
-                {getContentTitle('about_story', t('about.ourStory'))}
+                {getTitle('about_story', t('about.ourStory'))}
               </h3>
               <p className="text-muted-foreground mb-6">
-                {getContentText('about_story', t('about.storyP1'))}
+                {getBodyText('about_story', t('about.storyP1'))}
               </p>
               <p className="text-muted-foreground">
                 {t('about.storyP2')}
@@ -100,9 +100,9 @@ const About = () => {
               <Card className="border-primary/20 hover-lift">
                 <CardContent className="p-6 text-center">
                   <Eye className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <h4 className="font-semibold text-foreground mb-2">{getContentTitle('about_vision', t('about.vision'))}</h4>
+                  <h4 className="font-semibold text-foreground mb-2">{getTitle('about_vision', t('about.vision'))}</h4>
                   <p className="text-sm text-muted-foreground">
-                    {getContentText('about_vision', t('about.visionDesc'))}
+                    {getBodyText('about_vision', t('about.visionDesc'))}
                   </p>
                 </CardContent>
               </Card>
@@ -110,9 +110,9 @@ const About = () => {
               <Card className="border-accent/20 hover-lift">
                 <CardContent className="p-6 text-center">
                   <Target className="w-12 h-12 text-accent mx-auto mb-4" />
-                  <h4 className="font-semibold text-foreground mb-2">{getContentTitle('about_mission', t('about.mission'))}</h4>
+                  <h4 className="font-semibold text-foreground mb-2">{getTitle('about_mission', t('about.mission'))}</h4>
                   <p className="text-sm text-muted-foreground">
-                    {getContentText('about_mission', t('about.missionDesc'))}
+                    {getBodyText('about_mission', t('about.missionDesc'))}
                   </p>
                 </CardContent>
               </Card>

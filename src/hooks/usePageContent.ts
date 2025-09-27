@@ -24,18 +24,20 @@ export const usePageContent = (pageName: string, section?: string) => {
           .from('pages_content')
           .select('*')
           .eq('page_name', pageName)
-          .eq('is_active', true);
+          .eq('is_active', true)
+          .order('order_index', { ascending: true });
 
         if (section) {
           query = query.eq('section', section);
         }
 
-        const { data, error } = await query.order('order_index', { ascending: true });
+        const { data, error } = await query;
 
         if (error) throw error;
         setContent(data || []);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Erreur lors du chargement du contenu');
+        console.error('Error fetching page content:', err);
+        setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {
         setLoading(false);
       }
@@ -44,23 +46,21 @@ export const usePageContent = (pageName: string, section?: string) => {
     fetchContent();
   }, [pageName, section]);
 
-  const getContent = (sectionName: string) => {
-    return content.find(c => c.section === sectionName);
+  // Helper functions to get specific content
+  const getContent = (sectionName: string): PageContent | null => {
+    return content.find(c => c.section === sectionName) || null;
   };
 
-  const getContentText = (sectionName: string, fallback: string = '') => {
-    const sectionContent = getContent(sectionName);
-    return sectionContent?.body_text || fallback;
+  const getTitle = (sectionName: string, fallback: string = ''): string => {
+    return getContent(sectionName)?.title || fallback;
   };
 
-  const getContentTitle = (sectionName: string, fallback: string = '') => {
-    const sectionContent = getContent(sectionName);
-    return sectionContent?.title || fallback;
+  const getBodyText = (sectionName: string, fallback: string = ''): string => {
+    return getContent(sectionName)?.body_text || fallback;
   };
 
-  const getContentImage = (sectionName: string) => {
-    const sectionContent = getContent(sectionName);
-    return sectionContent?.image_url;
+  const getImageUrl = (sectionName: string): string | null => {
+    return getContent(sectionName)?.image_url || null;
   };
 
   return {
@@ -68,8 +68,8 @@ export const usePageContent = (pageName: string, section?: string) => {
     loading,
     error,
     getContent,
-    getContentText,
-    getContentTitle,
-    getContentImage
+    getTitle,
+    getBodyText,
+    getImageUrl
   };
 };

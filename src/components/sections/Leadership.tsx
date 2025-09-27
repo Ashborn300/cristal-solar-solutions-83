@@ -4,7 +4,7 @@ import { usePageContent } from "@/hooks/usePageContent";
 
 const Leadership = () => {
   const { t } = useLanguage();
-  const { getContentTitle, getContentText } = usePageContent('home');
+  const { getTitle, getBodyText } = usePageContent('home');
   return (
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,12 +28,12 @@ const Leadership = () => {
             </div>
             
             <h2 className="text-4xl font-bold text-foreground mb-6">
-              {getContentTitle('leadership', t('leadership.title'))}
+              {getTitle('leadership', t('leadership.title'))}
               <span className="block gradient-text">{t('leadership.subtitle')}</span>
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6">
-              {getContentText('leadership', t('leadership.description'))}
+              {getBodyText('leadership', t('leadership.description'))}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
