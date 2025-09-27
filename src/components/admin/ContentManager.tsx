@@ -112,15 +112,55 @@ export const ContentManager = () => {
     handleSave(content, 'image_url', imageUrl);
   };
 
+  const addNewContent = () => {
+    const newSection = prompt('Nom de la nouvelle section:');
+    if (!newSection) return;
+
+    const newContent: Omit<PageContent, 'id'> = {
+      page_name: 'home',
+      section: newSection,
+      title: `Nouveau titre - ${newSection}`,
+      body_text: `Nouveau contenu pour la section ${newSection}`,
+      image_url: null,
+      order_index: Math.max(...contents.map(c => c.order_index), 0) + 1,
+      is_active: true
+    };
+
+    // Créer en base de données
+    const createContent = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('pages_content')
+          .insert([newContent])
+          .select()
+          .single();
+
+        if (error) throw error;
+        setContents(prev => [...prev, data]);
+        setSuccess('Nouvelle section créée avec succès');
+        setTimeout(() => setSuccess(''), 3000);
+      } catch (err) {
+        setError('Erreur lors de la création de la section');
+      }
+    };
+
+    createContent();
+  };
+
   if (loading) {
     return <div className="text-center py-8">Chargement...</div>;
   }
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-xl font-semibold">{t.title}</h2>
-        <p className="text-muted-foreground">{t.description}</p>
+      <div className="flex justify-between items-start">
+        <div>
+          <h2 className="text-xl font-semibold">{t.title}</h2>
+          <p className="text-muted-foreground">{t.description}</p>
+        </div>
+        <Button onClick={addNewContent} className="bg-primary text-white hover:bg-primary/90">
+          Ajouter une section
+        </Button>
       </div>
 
       {error && (
@@ -136,13 +176,19 @@ export const ContentManager = () => {
       )}
 
       <div className="grid gap-6">
-        {contents.map((content) => (
-          <Card key={content.id}>
-            <CardHeader>
-              <CardTitle className="text-lg">
-                {t.page}: {content.page_name} - {t.section}: {content.section}
-              </CardTitle>
-            </CardHeader>
+        {contents.length === 0 ? (
+          <div className="text-center py-8 text-muted-foreground">
+            Aucun contenu trouvé. Cliquez sur "Ajouter une section" pour commencer.
+          </div>
+        ) : (
+          contents.map((content) => (
+            <Card key={content.id}>
+              <CardHeader>
+                <CardTitle className="text-lg flex justify-between items-center">
+                  <span>{t.page}: {content.page_name} - {t.section}: {content.section}</span>
+                  <span className="text-sm text-muted-foreground">Ordre: {content.order_index}</span>
+                </CardTitle>
+              </CardHeader>
             <CardContent className="space-y-4">
               <div>
                 <label className="text-sm font-medium">{t.title_field}</label>
@@ -187,7 +233,8 @@ export const ContentManager = () => {
               )}
             </CardContent>
           </Card>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );

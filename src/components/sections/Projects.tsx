@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import AnimatedNumber from "@/components/common/AnimatedNumber";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { usePageContent } from "@/hooks/usePageContent";
 import solarFieldImage from "@/assets/solar-panels-field.jpg";
 import solarTeamImage from "@/assets/solar-team-planning.jpg";
 import solarRuralImage from "@/assets/solar-rural-installation.jpg";
@@ -29,6 +30,7 @@ import projetRhigineIndustrielle4 from "@/assets/projet-rhigine-industrielle-4.j
 const Projects = () => {
   const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.3 });
   const { t } = useLanguage();
+  const { getContentTitle, getContentText } = usePageContent('home');
 
   const projects = [
     {
@@ -112,11 +114,11 @@ const Projects = () => {
             <span className="text-primary font-medium">{t('projects.badge')}</span>
           </div>
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            {t('projects.title')}
+            {getContentTitle('projects', t('projects.title'))}
             <span className="block gradient-text">{t('projects.subtitle')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {t('projects.description')}
+            {getContentText('projects', t('projects.description'))}
           </p>
         </div>
 

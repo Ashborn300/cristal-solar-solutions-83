@@ -2,6 +2,7 @@ import { Calculator, Truck, Wrench, Network, Lightbulb, Phone } from "lucide-rea
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { usePageContent } from "@/hooks/usePageContent";
 import solarHouseImage from "@/assets/solar-house-modern.jpg";
 import solarMaintenanceImage from "@/assets/solar-maintenance.jpg";
 import electricalWorkImage from "@/assets/electrical-work.jpg";
@@ -10,6 +11,7 @@ import solarKitImage from "@/assets/solar-kit-complete.jpg";
 
 const Services = () => {
   const { t } = useLanguage();
+  const { getContentTitle, getContentText } = usePageContent('home');
   
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/243819257778", "_blank");
@@ -63,10 +65,10 @@ const Services = () => {
               <span className="text-primary font-medium">{t('services.title')}</span>
             </div>
             <h2 className="text-3xl font-bold text-foreground mb-6">
-              {t('services.overview.title')}
+              {getContentTitle('services_overview', t('services.overview.title'))}
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-              {t('services.overview.description')}
+              {getContentText('services_overview', t('services.overview.description'))}
             </p>
           </div>
 
@@ -106,11 +108,11 @@ const Services = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            {t('services.heading')}
+            {getContentTitle('services', t('services.heading'))}
             <span className="block gradient-text">{t('services.subheading')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {t('services.description')}
+            {getContentText('services', t('services.description'))}
           </p>
         </div>
 

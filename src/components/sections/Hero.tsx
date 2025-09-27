@@ -5,12 +5,14 @@ import CVDownloadButton from "@/components/common/CVDownloadButton";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useNavigate } from "react-router-dom";
+import { usePageContent } from "@/hooks/usePageContent";
 import solarFieldImage from "@/assets/solar-panels-field.jpg";
 
 const Hero = () => {
   const { isVisible: statsVisible, elementRef: statsRef } = useScrollAnimation({ threshold: 0.5 });
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const { getContentTitle, getContentText, getContentImage } = usePageContent('home');
 
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/243819257778", "_blank");
@@ -48,19 +50,19 @@ const Hero = () => {
               <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
                 <span className="text-sm font-medium flex items-center">
                   <Award className="w-4 h-4 mr-2" />
-                  {t('hero.badge')}
+                  {getContentTitle('hero_badge', t('hero.badge'))}
                 </span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight animate-fadeInUp">
-                {t('hero.title')}
+                {getContentTitle('hero', t('hero.title'))}
                 <span className="block text-white text-shadow">
-                  {t('hero.subtitle')}
+                  {getContentTitle('hero_subtitle', t('hero.subtitle'))}
                 </span>
               </h1>
 
               <p className="text-xl text-white/90 max-w-lg animate-fadeInUp animation-delay-200">
-                {t('hero.description')}
+                {getContentText('hero_description', t('hero.description'))}
               </p>
             </div>
 
