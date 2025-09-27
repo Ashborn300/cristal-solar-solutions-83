@@ -1,6 +1,7 @@
 import { MapPin, Phone, Mail, Facebook, Clock, Send, MessageCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+// Updated to use Supabase content
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";

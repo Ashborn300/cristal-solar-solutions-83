@@ -1,6 +1,7 @@
 import { ExternalLink, MapPin, Zap, Calendar, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+// Updated to use Supabase content
 import AnimatedNumber from "@/components/common/AnimatedNumber";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";

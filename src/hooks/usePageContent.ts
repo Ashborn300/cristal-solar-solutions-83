@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 
+// Hook to fetch page content from Supabase
+
 interface PageContent {
   id: string;
   page_name: string;

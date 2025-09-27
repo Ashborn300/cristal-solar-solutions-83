@@ -1,5 +1,6 @@
 import deputeEngineeringImage from "@/assets/depute-engineering-team.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
+// Updated to use Supabase content
 import { usePageContent } from "@/hooks/usePageContent";
 
 const Leadership = () => {

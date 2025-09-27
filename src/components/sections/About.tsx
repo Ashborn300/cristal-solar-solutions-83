@@ -1,6 +1,7 @@
 import { Target, Eye, Award, Users, Zap, Globe } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import AnimatedNumber from "@/components/common/AnimatedNumber";
+// Updated to use Supabase content
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { usePageContent } from "@/hooks/usePageContent";

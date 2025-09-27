@@ -1,6 +1,7 @@
 import { ArrowRight, Zap, Users, Award, Phone, Images } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedNumber from "@/components/common/AnimatedNumber";
+// Updated to use Supabase content
 import CVDownloadButton from "@/components/common/CVDownloadButton";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";

@@ -1,6 +1,7 @@
 import { Calculator, Truck, Wrench, Network, Lightbulb, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+// Updated to use Supabase content
 import { useLanguage } from "@/contexts/LanguageContext";
 import { usePageContent } from "@/hooks/usePageContent";
 import solarHouseImage from "@/assets/solar-house-modern.jpg";
