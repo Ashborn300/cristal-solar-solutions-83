@@ -8,11 +8,14 @@ import LanguageToggle from "@/components/common/LanguageToggle";
 import logoImage from "@/assets/cristal-logo.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { t } = useLanguage();
-  const { isEditor } = useAuth();
+  const {
+    t
+  } = useLanguage();
+  const {
+    isEditor
+  } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  
   const navigation = [{
     name: t('nav.home'),
     href: "#accueil"
@@ -37,17 +40,17 @@ const Header = () => {
   }];
   const scrollToSection = (href: string) => {
     setIsMenuOpen(false);
-
     if (href.startsWith("/")) {
       navigate(href);
       return;
     }
-
     const isHome = location.pathname === "/";
-
     if (!isHome) {
       // Navigate to home with hash so the browser scrolls after route change
-      navigate({ pathname: "/", hash: href });
+      navigate({
+        pathname: "/",
+        hash: href
+      });
       return;
     }
 
@@ -55,7 +58,10 @@ const Header = () => {
     setTimeout(() => {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
       }
     }, 100);
   };
@@ -94,23 +100,7 @@ const Header = () => {
           </nav>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <LanguageToggle />
-            {isEditor && (
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={() => navigate('/admin')}
-              >
-                <Settings className="h-4 w-4 mr-2" />
-                Admin
-              </Button>
-            )}
-            <Button onClick={() => scrollToSection("#contact")} className="gradient-primary text-white shadow-solar">
-              <Zap className="w-4 h-4 mr-2" />
-              {t('nav.freeQuote')}
-            </Button>
-          </div>
+          
         </div>
 
         {/* Mobile Navigation */}
@@ -120,20 +110,13 @@ const Header = () => {
                   {item.name}
                 </button>)}
               <div className="pt-2 space-y-2">
-                {isEditor && (
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    onClick={() => {
-                      navigate('/admin');
-                      setIsMenuOpen(false);
-                    }}
-                    className="w-full"
-                  >
+                {isEditor && <Button variant="outline" size="sm" onClick={() => {
+              navigate('/admin');
+              setIsMenuOpen(false);
+            }} className="w-full">
                     <Settings className="h-4 w-4 mr-2" />
                     Admin
-                  </Button>
-                )}
+                  </Button>}
                 <Button onClick={handleWhatsAppClick} variant="outline" size="sm" className="w-full bg-green-500 text-white border-green-500 hover:bg-green-600">
                   <Phone className="w-4 h-4 mr-2" />
                   {t('nav.whatsapp')}
