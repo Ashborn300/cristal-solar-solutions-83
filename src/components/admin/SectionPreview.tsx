@@ -2,7 +2,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Eye, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
 
 interface PageContent {
   id: string;
@@ -20,7 +19,6 @@ interface SectionPreviewProps {
 }
 
 export function SectionPreview({ content }: SectionPreviewProps) {
-  const navigate = useNavigate();
   const getSectionColor = (section: string) => {
     const colors: Record<string, string> = {
       hero: 'bg-blue-500',
@@ -42,6 +40,7 @@ export function SectionPreview({ content }: SectionPreviewProps) {
   };
 
   const scrollToSection = () => {
+    // Ouvrir le site dans un nouvel onglet et naviguer vers la section
     const sectionId = content.section.includes('hero') ? 'accueil' : 
                      content.section.includes('about') ? 'about' :
                      content.section.includes('services') ? 'services' :
@@ -51,7 +50,8 @@ export function SectionPreview({ content }: SectionPreviewProps) {
                      content.section.includes('testimonials') ? 'temoignages' :
                      content.section.includes('faq') ? 'faq' :
                      'accueil';
-    navigate({ pathname: '/', hash: `#${sectionId}` });
+    
+    window.open(`/#${sectionId}`, '_blank');
   };
 
   return (
