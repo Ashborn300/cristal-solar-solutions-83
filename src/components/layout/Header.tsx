@@ -72,16 +72,29 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate("/")} role="button" aria-label="Aller à l'accueil">
-            <div className="flex items-center justify-center w-12 h-12 overflow-hidden">
-              <img src={logoImage} alt="Cristal Alternative Engineering Logo" className="w-full h-full object-contain" />
+          <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate("/")} role="button" aria-label="Aller à l'accueil">
+              <div className="flex items-center justify-center w-12 h-12 overflow-hidden">
+                <img src={logoImage} alt="Cristal Alternative Engineering Logo" className="w-full h-full object-contain" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold text-primary">CRISTAL</span>
+                <span className="text-xs text-muted-foreground leading-none">
+                  ALTERNATIVE ENGINEERING
+                </span>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-primary">CRISTAL</span>
-              <span className="text-xs text-muted-foreground leading-none">
-                ALTERNATIVE ENGINEERING
-              </span>
-            </div>
+            {isEditor && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => navigate('/admin')}
+                aria-label="Administration"
+                className="text-muted-foreground hover:text-primary"
+              >
+                <Settings className="h-5 w-5" />
+              </Button>
+            )}
           </div>
 
           {/* Mobile Language Toggle + Menu Button */}
