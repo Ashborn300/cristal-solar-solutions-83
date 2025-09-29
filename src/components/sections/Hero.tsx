@@ -36,7 +36,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={solarFieldImage}
-          alt="Installation solaire CRISTAL"
+          alt="CRISTAL ENTREPRISES - CRISTAL ALTERNATIVE ENGINEERING Installation solaire Kinshasa"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 gradient-hero opacity-90"></div>

@@ -75,10 +75,10 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate("/")} role="button" aria-label="Aller à l'accueil">
               <div className="flex items-center justify-center w-12 h-12 overflow-hidden">
-                <img src={logoImage} alt="Cristal Alternative Engineering Logo" className="w-full h-full object-contain" />
+                <img src={logoImage} alt="CRISTAL ENTREPRISES - CRISTAL ALTERNATIVE ENGINEERING Logo" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-bold text-primary">CRISTAL</span>
+                <span className="text-lg font-bold text-primary">CRISTAL ENTREPRISES</span>
                 <span className="text-xs text-muted-foreground leading-none">
                   ALTERNATIVE ENGINEERING
                 </span>
