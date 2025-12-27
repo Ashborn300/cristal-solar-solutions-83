@@ -260,18 +260,12 @@ export type Database = {
         }
         Returns: boolean
       }
-      is_admin_or_editor: {
-        Args: { _user_id: string }
-        Returns: boolean
-      }
+      is_admin_or_editor: { Args: { _user_id: string }; Returns: boolean }
       promote_user_to_admin: {
         Args: { user_email: string }
         Returns: undefined
       }
-      setup_admin_user: {
-        Args: Record<PropertyKey, never>
-        Returns: undefined
-      }
+      setup_admin_user: { Args: never; Returns: undefined }
     }
     Enums: {
       user_role: "admin" | "editor"

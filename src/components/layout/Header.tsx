@@ -99,15 +99,17 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navigation.map(item => (
-              <button 
-                key={item.name} 
-                onClick={() => scrollToSection(item.href)} 
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
-              >
-                {item.name}
-              </button>
-            ))}
+            {navigation
+              .filter(item => item.href !== "#about" && item.href !== "#contact")
+              .map(item => (
+                <button 
+                  key={item.name} 
+                  onClick={() => scrollToSection(item.href)} 
+                  className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                >
+                  {item.name}
+                </button>
+              ))}
           </nav>
 
           {/* Desktop Language Toggle + CTA Buttons */}
