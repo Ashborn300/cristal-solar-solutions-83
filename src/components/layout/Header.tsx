@@ -14,18 +14,25 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const navigation = [
+  const navigation: { name: string; href: string; external?: boolean }[] = [
     { name: t('nav.home'), href: "#accueil" },
     { name: t('nav.services'), href: "#services" },
     { name: t('nav.about'), href: "#about" },
     { name: t('nav.projects'), href: "/gallery" },
     { name: t('nav.testimonials'), href: "#temoignages" },
     { name: t('nav.cv'), href: "/cv" },
-    { name: t('nav.contact'), href: "#contact" }
+    { name: t('nav.contact'), href: "#contact" },
+    { name: "Email", href: "https://mail.hostinger.com/v2/auth/login", external: true }
   ];
 
-  const scrollToSection = (href: string) => {
+  const scrollToSection = (href: string, external?: boolean) => {
     setIsMenuOpen(false);
+    
+    // Handle external links
+    if (external) {
+      window.open(href, "_blank");
+      return;
+    }
     
     if (href.startsWith("/")) {
       navigate(href);
@@ -104,7 +111,7 @@ const Header = () => {
               .map(item => (
                 <button 
                   key={item.name} 
-                  onClick={() => scrollToSection(item.href)} 
+                  onClick={() => scrollToSection(item.href, item.external)} 
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
                 >
                   {item.name}
@@ -149,7 +156,7 @@ const Header = () => {
               {navigation.map(item => (
                 <button 
                   key={item.name} 
-                  onClick={() => scrollToSection(item.href)} 
+                  onClick={() => scrollToSection(item.href, item.external)} 
                   className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary hover:bg-muted rounded-md w-full text-left transition-colors"
                 >
                   {item.name}
