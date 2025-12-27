@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Zap, Phone, Settings } from "lucide-react";
+import { Menu, X, Zap, Phone, Settings, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -21,9 +21,12 @@ const Header = () => {
     { name: t('nav.projects'), href: "/gallery" },
     { name: t('nav.testimonials'), href: "#temoignages" },
     { name: t('nav.cv'), href: "/cv" },
-    { name: t('nav.contact'), href: "#contact" },
-    { name: "Email", href: "https://mail.hostinger.com/v2/auth/login", external: true }
+    { name: t('nav.contact'), href: "#contact" }
   ];
+
+  const handleEmailClick = () => {
+    window.open("https://mail.hostinger.com/v2/auth/login", "_blank");
+  };
 
   const scrollToSection = (href: string, external?: boolean) => {
     setIsMenuOpen(false);
@@ -123,6 +126,13 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <LanguageToggle />
             <Button
+              onClick={handleEmailClick}
+              className="gradient-primary text-white shadow-warm"
+            >
+              <Mail className="w-4 h-4 mr-2" />
+              Email
+            </Button>
+            <Button
               onClick={handleWhatsAppClick}
               variant="outline"
               size="sm"
@@ -177,6 +187,16 @@ const Header = () => {
                     Admin
                   </Button>
                 )}
+                <Button 
+                  onClick={() => {
+                    handleEmailClick();
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full gradient-primary text-white"
+                >
+                  <Mail className="w-4 h-4 mr-2" />
+                  Email
+                </Button>
                 <Button 
                   onClick={handleWhatsAppClick} 
                   variant="outline" 
