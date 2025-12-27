@@ -83,12 +83,12 @@ const Header = () => {
               <div className="flex items-center justify-center w-12 h-12 overflow-hidden">
                 <img 
                   src={logoImage} 
-                  alt="CRISTAL ENTREPRISES - CRISTAL ALTERNATIVE ENGINEERING Logo" 
+                  alt="CRISTAL ENTERPRISES - CRISTAL ALTERNATIVE ENGINEERING Logo" 
                   className="w-full h-full object-contain" 
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-bold text-primary">CRISTAL ENTREPRISES</span>
+                <span className="text-lg font-bold text-primary">CRISTAL ENTERPRISES</span>
                 <span className="text-xs text-muted-foreground leading-none">
                   ALTERNATIVE ENGINEERING
                 </span>
