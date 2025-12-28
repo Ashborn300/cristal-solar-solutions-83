@@ -17,28 +17,28 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: t('faq.question1'),
-      answer: t('faq.answer1')
+      question: "Quel est le coût d'une installation solaire ?",
+      answer: "Le coût varie selon la taille du système. Pour une installation résidentielle (5 kW) : 8 000 à 12 000 $. Pour une installation commerciale (25 kW) : 30 000 à 45 000 $. La rentabilité est estimée entre 2 à 4 ans selon votre consommation actuelle. Contactez-nous pour un devis personnalisé gratuit."
     },
     {
-      question: t('faq.question2'),
-      answer: t('faq.answer2')
+      question: "Quelle est la durée de vie des panneaux solaires ?",
+      answer: "Nos panneaux solaires haute performance ont une durée de vie de 25 à 30 ans. Ils sont couverts par une garantie constructeur et conservent au moins 80% de leur capacité après 25 ans d'utilisation."
     },
     {
-      question: t('faq.question3'),
-      answer: t('faq.answer3')
+      question: "Les systèmes fonctionnent-ils quand il pleut ou par temps nuageux ?",
+      answer: "Oui, le système reste fonctionnel même par temps nuageux ou pluvieux. La production est réduite mais compensée par les batteries de stockage adaptées. Votre installation continue de fournir de l'électricité 24h/24."
     },
     {
-      question: t('faq.question4'),
-      answer: t('faq.answer4')
+      question: "Offrez-vous des services de maintenance ?",
+      answer: "Oui, nous proposons une maintenance préventive régulière et un service de dépannage rapide 24h/7j. Nos contrats incluent des visites périodiques, le nettoyage des panneaux, la vérification des connexions et le remplacement des pièces si nécessaire avec garantie étendue."
     },
     {
-      question: t('faq.question5'),
-      answer: t('faq.answer5')
+      question: "Peut-on revendre l'excédent d'énergie produite ?",
+      answer: "Oui, selon la réglementation locale en vigueur, il est possible de revendre l'excédent d'énergie au réseau électrique. Nos systèmes hybrides et on-grid sont conçus pour cette fonctionnalité. Nous vous accompagnons dans les démarches administratives."
     },
     {
-      question: t('faq.question6'),
-      answer: t('faq.answer6')
+      question: "Aidez-vous avec les autorisations et démarches administratives ?",
+      answer: "Oui, nous offrons une assistance complète pour toutes les démarches administratives : permis d'installation, raccordement au réseau, déclarations fiscales et toute autre formalité nécessaire. Notre équipe s'occupe de tout pour vous."
     }
   ];
 
