@@ -8,8 +8,9 @@ import { usePageContent } from "@/hooks/usePageContent";
 import solarWorkerImage from "@/assets/solar-worker-happy.jpg";
 
 const About = () => {
-  const { isVisible: statsVisible, elementRef: statsRef } = useScrollAnimation({ threshold: 0.4 });
+  const { isVisible: statsVisible, elementRef: statsRef } = useScrollAnimation({ threshold: 0.2 });
   const { isVisible: contentVisible, elementRef: contentRef } = useScrollAnimation({ threshold: 0.2 });
+  const { isVisible: valuesVisible, elementRef: valuesRef } = useScrollAnimation({ threshold: 0.2 });
   const { t } = useLanguage();
   const { getTitle, getBodyText, getImageUrl } = usePageContent('home');
 
@@ -39,10 +40,13 @@ const About = () => {
   ];
 
   return (
-    <section ref={contentRef} id="about" className="py-20 bg-background">
+    <section id="about" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16 animate-fadeInUp">
+        <div 
+          ref={contentRef}
+          className={`text-center mb-16 scroll-animate ${contentVisible ? 'in-view' : ''}`}
+        >
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
             <span className="text-primary font-medium">{t('about.badge')}</span>
           </div>
@@ -58,7 +62,7 @@ const About = () => {
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Left - Image */}
-          <div className="relative animate-slideInLeft">
+          <div className={`relative scroll-animate-left ${contentVisible ? 'in-view' : ''}`}>
             <div className="relative overflow-hidden rounded-2xl shadow-solar">
               <img
                 src={getImageUrl('about') || solarWorkerImage}
@@ -83,7 +87,7 @@ const About = () => {
           </div>
 
           {/* Right - Content */}
-          <div className="space-y-8 animate-fadeInUp">
+          <div className={`space-y-8 scroll-animate-right ${contentVisible ? 'in-view' : ''}`} style={{ transitionDelay: '0.2s' }}>
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-4">
                 {getTitle('about_story', t('about.ourStory'))}
@@ -124,7 +128,11 @@ const About = () => {
         {/* Stats Section */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16" ref={statsRef}>
           {stats.map((stat, index) => (
-            <Card key={index} className="text-center hover-lift animate-scaleIn" style={{ animationDelay: `${index * 0.1}s` }}>
+            <Card 
+              key={index} 
+              className={`text-center hover-lift scroll-animate-scale ${statsVisible ? 'in-view' : ''}`} 
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
               <CardContent className="p-6">
                 <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
                 <div className="text-3xl font-bold gradient-text mb-2 animate-counter">
@@ -141,8 +149,8 @@ const About = () => {
         </div>
 
         {/* Values Section */}
-        <div className="space-y-8">
-          <div className="text-center">
+        <div ref={valuesRef} className="space-y-8">
+          <div className={`text-center scroll-animate ${valuesVisible ? 'in-view' : ''}`}>
             <h3 className="text-3xl font-bold text-foreground mb-4">{t('about.values.title')}</h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               {t('about.values.description')}
@@ -151,7 +159,11 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="text-center hover-lift animate-fadeInUp" style={{ animationDelay: `${index * 0.2}s` }}>
+              <Card 
+                key={index} 
+                className={`text-center hover-lift scroll-animate-scale ${valuesVisible ? 'in-view' : ''}`} 
+                style={{ transitionDelay: `${index * 0.15}s` }}
+              >
                 <CardContent className="p-8">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                     <value.icon className="w-8 h-8 text-primary" />
