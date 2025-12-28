@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { usePageContent } from "@/hooks/usePageContent";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import solarHouseImage from "@/assets/solar-house-modern.jpg";
 import solarMaintenanceImage from "@/assets/solar-maintenance.jpg";
 import electricalWorkImage from "@/assets/electrical-work.jpg";
@@ -12,6 +13,10 @@ import solarKitImage from "@/assets/solar-kit-complete.jpg";
 const Services = () => {
   const { t } = useLanguage();
   const { getTitle, getBodyText } = usePageContent('home');
+  const { isVisible: headerVisible, elementRef: headerRef } = useScrollAnimation({ threshold: 0.2 });
+  const { isVisible: gridVisible, elementRef: gridRef } = useScrollAnimation({ threshold: 0.1 });
+  const { isVisible: cardsVisible, elementRef: cardsRef } = useScrollAnimation({ threshold: 0.1 });
+  const { isVisible: ctaVisible, elementRef: ctaRef } = useScrollAnimation({ threshold: 0.3 });
   
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/243819257778", "_blank");
@@ -90,7 +95,10 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Services Overview */}
         <div className="mb-20">
-          <div className="text-center mb-12">
+          <div 
+            ref={headerRef}
+            className={`text-center mb-12 scroll-animate ${headerVisible ? 'in-view' : ''}`}
+          >
             <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
               <span className="text-primary font-medium">{t('services.title')}</span>
             </div>
@@ -103,7 +111,7 @@ const Services = () => {
           </div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: "Études et Dimensionnements Solaires", desc: "Analyse complète de vos besoins, calcul de rentabilité et plans techniques détaillés avec simulation 3D", icon: FileSearch },
               { title: "Installation Clé en Main", desc: "Panneaux solaires haute performance, installation certifiée et mise en service professionnelle", icon: Package },
@@ -118,7 +126,11 @@ const Services = () => {
               { title: "Stockage par Batteries", desc: "Systèmes de stockage haute capacité pour une autonomie énergétique maximale", icon: Battery },
               { title: "Optimisation Continue", desc: "Suivi et optimisation de vos installations pour des performances maximales", icon: TrendingUp }
             ].map((service, index) => (
-              <Card key={index} className="p-5 hover-lift bg-background border-border group">
+              <Card 
+                key={index} 
+                className={`p-5 hover-lift bg-background border-border group scroll-animate-scale ${gridVisible ? 'in-view' : ''}`}
+                style={{ transitionDelay: `${index * 0.05}s` }}
+              >
                 <div className="flex items-start space-x-3">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
                     <service.icon className="w-5 h-5 text-primary" />
@@ -138,7 +150,7 @@ const Services = () => {
         </div>
 
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 scroll-animate ${headerVisible ? 'in-view' : ''}`}>
           <h2 className="text-4xl font-bold text-foreground mb-4">
             {getTitle('services', t('services.heading'))}
             <span className="block gradient-text">{t('services.subheading')}</span>
@@ -149,12 +161,12 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div ref={cardsRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group hover-lift bg-background border-border overflow-hidden animate-fadeInUp"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`group hover-lift bg-background border-border overflow-hidden scroll-animate-left ${cardsVisible ? 'in-view' : ''}`}
+              style={{ transitionDelay: `${index * 0.15}s` }}
             >
               <div className="relative h-48 overflow-hidden">
                 <img
@@ -207,7 +219,10 @@ const Services = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center bg-card rounded-2xl p-8 shadow-solar">
+        <div 
+          ref={ctaRef}
+          className={`text-center bg-card rounded-2xl p-8 shadow-solar scroll-animate-scale ${ctaVisible ? 'in-view' : ''}`}
+        >
           <h3 className="text-2xl font-bold text-foreground mb-4">
             {t('services.cta.title')}
           </h3>
