@@ -14,7 +14,7 @@ const Statistics = () => {
       number: 14,
       suffix: "+",
       label: t('stats.years'),
-      description: t('stats.description'),
+      description: "Expertise solaire depuis 2011",
       color: "text-primary"
     },
     {
@@ -35,10 +35,10 @@ const Statistics = () => {
     },
     {
       icon: TrendingUp,
-      number: 150,
-      suffix: "MW",
+      number: 1.8,
+      suffix: " MW",
       label: t('stats.capacity'),
-      description: "Capacité totale en mégawatts",
+      description: "Capacité totale installée",
       color: "text-primary"
     },
     {
@@ -51,10 +51,10 @@ const Statistics = () => {
     },
     {
       icon: Globe,
-      number: 50,
-      suffix: "+",
+      number: 12,
+      suffix: " Villes",
       label: "Localités Desservies",
-      description: "À travers le Congo",
+      description: "En RDC + 3 pays d'Afrique Centrale",
       color: "text-success"
     }
   ];

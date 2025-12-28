@@ -76,18 +76,18 @@ const Services = () => {
           {/* Services Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: t('services.overview.service1'), desc: t('services.overview.service1.desc') },
-              { title: t('services.overview.service2'), desc: t('services.overview.service2.desc') },
-              { title: t('services.overview.service3'), desc: t('services.overview.service3.desc') },
-              { title: t('services.overview.service4'), desc: t('services.overview.service4.desc') },
-              { title: t('services.overview.service5'), desc: t('services.overview.service5.desc') },
-              { title: t('services.overview.service6'), desc: t('services.overview.service6.desc') },
-              { title: t('services.overview.service7'), desc: t('services.overview.service7.desc') },
-              { title: t('services.overview.service8'), desc: t('services.overview.service8.desc') },
-              { title: t('services.overview.service9'), desc: t('services.overview.service9.desc') },
-              { title: t('services.overview.service10'), desc: t('services.overview.service10.desc') },
-              { title: t('services.overview.service11'), desc: t('services.overview.service11.desc') },
-              { title: t('services.overview.service12'), desc: t('services.overview.service12.desc') }
+              { title: "Études et Dimensionnements Solaires", desc: "Analyse complète de vos besoins, calcul de rentabilité et plans techniques détaillés avec simulation 3D" },
+              { title: "Installation Clé en Main", desc: "Panneaux solaires haute performance, installation certifiée et mise en service professionnelle" },
+              { title: "Maintenance et Dépannage 24h/7j", desc: "Maintenance préventive, dépannage rapide, pièces de rechange et garantie étendue" },
+              { title: "Solutions Hybrides et On-Grid", desc: "Systèmes combinant solaire, réseau électrique et stockage avec monitoring avancé" },
+              { title: "Audit Énergétique et Conseil", desc: "Évaluation complète de votre consommation et recommandations personnalisées" },
+              { title: "Formation Utilisateur", desc: "Formation complète sur l'utilisation et l'entretien de votre installation solaire" },
+              { title: "Installation de Systèmes d'Irrigation Solaire", desc: "Solutions d'irrigation alimentées par l'énergie solaire pour l'agriculture" },
+              { title: "Équipements Agricoles et Avicoles", desc: "Fourniture et installation d'équipements pour l'agriculture et l'élevage" },
+              { title: "China Drop Shipping", desc: "Importation et livraison de tous vos équipements solaires et électriques" },
+              { title: "Réfrigération et Climatisation Solaire", desc: "Solutions de froid alimentées par l'énergie solaire pour commerces et industries" },
+              { title: "Stockage par Batteries", desc: "Systèmes de stockage haute capacité pour une autonomie énergétique maximale" },
+              { title: "Optimisation Continue", desc: "Suivi et optimisation de vos installations pour des performances maximales" }
             ].map((service, index) => (
               <Card key={index} className="p-5 hover-lift bg-background border-border group">
                 <div className="flex items-start space-x-3">
