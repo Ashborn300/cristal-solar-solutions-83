@@ -1,7 +1,6 @@
-import { Calculator, Truck, Wrench, Network, Lightbulb, Phone } from "lucide-react";
+import { Calculator, Truck, Wrench, Network, Lightbulb, Phone, FileSearch, Package, GraduationCap, Droplets, Wheat, ShoppingCart, Snowflake, Battery, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-// Updated to use Supabase content
 import { useLanguage } from "@/contexts/LanguageContext";
 import { usePageContent } from "@/hooks/usePageContent";
 import solarHouseImage from "@/assets/solar-house-modern.jpg";
@@ -76,22 +75,24 @@ const Services = () => {
           {/* Services Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Études et Dimensionnements Solaires", desc: "Analyse complète de vos besoins, calcul de rentabilité et plans techniques détaillés avec simulation 3D" },
-              { title: "Installation Clé en Main", desc: "Panneaux solaires haute performance, installation certifiée et mise en service professionnelle" },
-              { title: "Maintenance et Dépannage 24h/7j", desc: "Maintenance préventive, dépannage rapide, pièces de rechange et garantie étendue" },
-              { title: "Solutions Hybrides et On-Grid", desc: "Systèmes combinant solaire, réseau électrique et stockage avec monitoring avancé" },
-              { title: "Audit Énergétique et Conseil", desc: "Évaluation complète de votre consommation et recommandations personnalisées" },
-              { title: "Formation Utilisateur", desc: "Formation complète sur l'utilisation et l'entretien de votre installation solaire" },
-              { title: "Installation de Systèmes d'Irrigation Solaire", desc: "Solutions d'irrigation alimentées par l'énergie solaire pour l'agriculture" },
-              { title: "Équipements Agricoles et Avicoles", desc: "Fourniture et installation d'équipements pour l'agriculture et l'élevage" },
-              { title: "China Drop Shipping", desc: "Importation et livraison de tous vos équipements solaires et électriques" },
-              { title: "Réfrigération et Climatisation Solaire", desc: "Solutions de froid alimentées par l'énergie solaire pour commerces et industries" },
-              { title: "Stockage par Batteries", desc: "Systèmes de stockage haute capacité pour une autonomie énergétique maximale" },
-              { title: "Optimisation Continue", desc: "Suivi et optimisation de vos installations pour des performances maximales" }
+              { title: "Études et Dimensionnements Solaires", desc: "Analyse complète de vos besoins, calcul de rentabilité et plans techniques détaillés avec simulation 3D", icon: FileSearch },
+              { title: "Installation Clé en Main", desc: "Panneaux solaires haute performance, installation certifiée et mise en service professionnelle", icon: Package },
+              { title: "Maintenance et Dépannage 24h/7j", desc: "Maintenance préventive, dépannage rapide, pièces de rechange et garantie étendue", icon: Wrench },
+              { title: "Solutions Hybrides et On-Grid", desc: "Systèmes combinant solaire, réseau électrique et stockage avec monitoring avancé", icon: Network },
+              { title: "Audit Énergétique et Conseil", desc: "Évaluation complète de votre consommation et recommandations personnalisées", icon: Calculator },
+              { title: "Formation Utilisateur", desc: "Formation complète sur l'utilisation et l'entretien de votre installation solaire", icon: GraduationCap },
+              { title: "Installation de Systèmes d'Irrigation Solaire", desc: "Solutions d'irrigation alimentées par l'énergie solaire pour l'agriculture", icon: Droplets },
+              { title: "Équipements Agricoles et Avicoles", desc: "Fourniture et installation d'équipements pour l'agriculture et l'élevage", icon: Wheat },
+              { title: "China Drop Shipping", desc: "Importation et livraison de tous vos équipements solaires et électriques", icon: ShoppingCart },
+              { title: "Réfrigération et Climatisation Solaire", desc: "Solutions de froid alimentées par l'énergie solaire pour commerces et industries", icon: Snowflake },
+              { title: "Stockage par Batteries", desc: "Systèmes de stockage haute capacité pour une autonomie énergétique maximale", icon: Battery },
+              { title: "Optimisation Continue", desc: "Suivi et optimisation de vos installations pour des performances maximales", icon: TrendingUp }
             ].map((service, index) => (
               <Card key={index} className="p-5 hover-lift bg-background border-border group">
                 <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <service.icon className="w-5 h-5 text-primary" />
+                  </div>
                   <div className="flex-1">
                     <h4 className="text-sm text-foreground font-semibold leading-relaxed mb-2 group-hover:text-primary transition-colors">
                       {service.title}
