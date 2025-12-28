@@ -20,38 +20,68 @@ const Services = () => {
   const services = [
     {
       icon: Calculator,
-      title: t('services.studies.title'),
-      description: t('services.studies.description'),
+      badge: "Assurez une Rentabilité Maximale",
+      title: "Études et Dimensionnements Solaires",
+      description: "Analyse complète de vos besoins énergétiques pour maximiser votre retour sur investissement.",
       image: solarHouseImage,
-      features: [t('services.studies.feature1'), t('services.studies.feature2'), t('services.studies.feature3'), t('services.studies.feature4')]
+      features: [
+        "Analyse complète de vos besoins énergétiques",
+        "Calcul de rentabilité et plans techniques détaillés",
+        "Simulation 3D et recommandations sur mesure",
+        "Devis personnalisé gratuit"
+      ]
     },
     {
-      icon: Truck,
-      title: t('services.supply.title'),
-      description: t('services.supply.description'),
+      icon: Package,
+      badge: "Optez pour la Tranquillité d'Esprit",
+      title: "Installation Clé en Main",
+      description: "Une installation professionnelle complète, de A à Z, pour une transition énergétique sans souci.",
       image: solarKitImage,
-      features: [t('services.supply.feature1'), t('services.supply.feature2'), t('services.supply.feature3'), t('services.supply.feature4')]
+      features: [
+        "Panneaux solaires haute performance",
+        "Installation certifiée et mise en service professionnelle",
+        "Formation utilisateur complète",
+        "Suivi post-installation inclus"
+      ]
     },
     {
       icon: Wrench,
-      title: t('services.maintenance.title'),
-      description: t('services.maintenance.description'),
+      badge: "Garantissez une Fiabilité 24/7",
+      title: "Maintenance et Dépannage",
+      description: "Un service de maintenance préventive et corrective pour assurer la longévité de votre installation.",
       image: solarMaintenanceImage,
-      features: [t('services.maintenance.feature1'), t('services.maintenance.feature2'), t('services.maintenance.feature3'), t('services.maintenance.feature4')]
+      features: [
+        "Maintenance préventive régulière",
+        "Dépannage rapide 24h/7j",
+        "Pièces de rechange d'origine",
+        "Garantie étendue sur les interventions"
+      ]
     },
     {
       icon: Network,
-      title: t('services.hybrid.title'),
-      description: t('services.hybrid.description'),
+      badge: "Optimisez votre Indépendance Énergétique",
+      title: "Solutions Hybrides et On-Grid",
+      description: "Des systèmes intelligents combinant plusieurs sources d'énergie pour une autonomie maximale.",
       image: electricalWorkImage,
-      features: [t('services.hybrid.feature1'), t('services.hybrid.feature2'), t('services.hybrid.feature3'), t('services.hybrid.feature4')]
+      features: [
+        "Systèmes combinant solaire, réseau et stockage",
+        "Monitoring avancé en temps réel",
+        "Optimisation continue des performances",
+        "Revente d'excédent d'énergie possible"
+      ]
     },
     {
       icon: Lightbulb,
-      title: t('services.consulting.title'),
-      description: t('services.consulting.description'),
+      badge: "Bénéficiez d'un Accompagnement Expert",
+      title: "Audit et Conseil Technique",
+      description: "Un accompagnement personnalisé pour tous vos projets d'énergie renouvelable.",
       image: solarRuralImage,
-      features: [t('services.consulting.feature1'), t('services.consulting.feature2'), t('services.consulting.feature3'), t('services.consulting.feature4')]
+      features: [
+        "Audit énergétique complet",
+        "Conseil technique personnalisé",
+        "Accompagnement administratif",
+        "Suivi de projet de A à Z"
+      ]
     }
   ];
 
@@ -133,8 +163,14 @@ const Services = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                {/* Badge */}
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-primary text-white text-xs font-medium rounded-full shadow-lg">
+                    {service.badge}
+                  </span>
+                </div>
                 <div className="absolute bottom-4 left-4">
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-lg">
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                     <service.icon className="w-6 h-6 text-primary" />
                   </div>
                 </div>
