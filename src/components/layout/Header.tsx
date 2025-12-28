@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import LanguageToggle from "@/components/common/LanguageToggle";
-import logoImage from "@/assets/cristal-logo.png";
+import logoImage from "@/assets/cristal-logo-full.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,19 +80,11 @@ const Header = () => {
               role="button" 
               aria-label="Aller à l'accueil"
             >
-              <div className="flex items-center justify-center w-12 h-12 overflow-hidden">
-                <img 
-                  src={logoImage} 
-                  alt="CRISTAL ENTERPRISES - CRISTAL ALTERNATIVE ENGINEERING Logo" 
-                  className="w-full h-full object-contain" 
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-bold text-primary">CRISTAL ENTERPRISES</span>
-                <span className="text-xs text-muted-foreground leading-none">
-                  ALTERNATIVE ENGINEERING
-                </span>
-              </div>
+              <img 
+                src={logoImage} 
+                alt="CRISTAL ENTERPRISES - Alternative Engineering Logo" 
+                className="h-12 w-auto object-contain" 
+              />
             </div>
             {isEditor && (
               <Button
