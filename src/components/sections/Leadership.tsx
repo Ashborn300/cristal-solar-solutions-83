@@ -30,20 +30,25 @@ const Leadership = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Image Section */}
-          <div className="relative overflow-hidden rounded-2xl shadow-solar animate-fadeInUp">
+          <a 
+            href="https://www.facebook.com/share/17HhaZBcxG/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="relative overflow-hidden rounded-2xl shadow-solar animate-fadeInUp block cursor-pointer group"
+          >
             <div className="aspect-[4/3] overflow-hidden">
               <img
                 src={deputeEngineeringImage}
                 alt="Ir. Wilondja Watutakubi - Directeur Technique CRISTAL ALTERNATIVE ENGINEERING"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:from-black/70 transition-colors duration-300"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
               <h3 className="text-xl font-bold">Ir. Wilondja Watutakubi</h3>
               <p className="text-white/90">Directeur Technique & Expert Solaire Certifié</p>
             </div>
-          </div>
+          </a>
 
           {/* Content Section */}
           <div className="space-y-6 animate-fadeInUp" style={{ animationDelay: "0.2s" }}>
